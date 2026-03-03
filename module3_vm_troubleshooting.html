@@ -51,10 +51,10 @@
   <p class="subtitle">Section 3-1 · 10분</p>
   <h2 style="text-align:center;"><i class="fa fa-clone" style="color:var(--accent)"></i> VM 생성/템플릿 & XenTools 필수성</h2>
   <div style="max-width:1800px;margin:0 auto;">
-    <div class="quote-box fragment" style="margin-bottom:12px;text-align:center;font-style:normal;">
+    <div class="quote-box" style="margin-bottom:12px;text-align:center;font-style:normal;">
       <i class="fa fa-lightbulb" style="color:var(--accent)"></i>&nbsp; "VM 생성은 단순 설치가 아니라, 검증된 <strong>'운영 정책'과 '설정'</strong>이 포함된 Master Template을 복제하는 과정"
     </div>
-    <table class="styled-table fragment" style="margin-bottom:14px;">
+    <table class="styled-table" style="margin-bottom:14px;">
       <thead><tr><th style="width:25%;">구분</th><th style="width:37%;">ISO 직접 설치</th><th style="width:38%;" class="highlight-col">Template 복제</th></tr></thead>
       <tbody>
         <tr><td style="font-weight:600;text-align:left;">소요 시간</td><td>30분~1시간</td><td class="highlight-col" style="color:var(--success)!important;font-weight:700;">1분 내외</td></tr>
@@ -62,7 +62,7 @@
         <tr><td style="font-weight:600;text-align:left;">관리 용이성</td><td>개별 관리 필요</td><td class="highlight-col" style="color:var(--success)!important;font-weight:700;">중앙 표준화</td></tr>
       </tbody>
     </table>
-    <div class="danger-box fragment">
+    <div class="danger-box">
       <i class="fa fa-exclamation-triangle"></i>&nbsp; <strong>운영 리스크</strong>: 템플릿 설정 오류 시 → 해당 템플릿으로 생성된 <strong>수백 대 VM에서 동일 장애</strong> 발생
     </div>
   </div>
@@ -83,7 +83,7 @@
         <tr><td style="font-weight:600;text-align:left;">고급 기능</td><td style="color:var(--danger);">Live Migration, Snapshot, Ballooning <strong>불가</strong></td><td class="highlight-col" style="color:var(--success)!important;">모두 사용 가능 ✓</td></tr>
       </tbody>
     </table>
-    <div class="quote-box fragment" style="margin-top:16px;text-align:center;">
+    <div class="quote-box" style="margin-top:16px;text-align:center;">
       <i class="fa fa-key" style="color:var(--accent)"></i>&nbsp; <strong>핵심 원칙</strong>: "운영 환경에서 발생하는 '원인 불명의 성능 저하'는 대부분 <strong>XenTools 미설치 또는 구버전</strong>이 원인"
     </div>
   </div>
@@ -95,7 +95,7 @@
   <p class="subtitle">Section 3-2 · 10분</p>
   <h2 style="text-align:center;"><i class="fa fa-camera" style="color:var(--accent)"></i> Snapshot 구조 & 리소스 할당</h2>
   <div style="max-width:1800px;margin:0 auto;">
-    <table class="styled-table fragment" style="margin-bottom:12px;">
+    <table class="styled-table" style="margin-bottom:12px;">
       <thead><tr><th style="width:25%;">유형</th><th>Crash-consistent</th><th>Live Snapshot</th></tr></thead>
       <tbody>
         <tr><td style="font-weight:600;text-align:left;">저장 상태</td><td>전원 강제 차단과 동일</td><td style="color:var(--success);">운영 상태 그대로</td></tr>
@@ -110,7 +110,7 @@
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:var(--danger);">Read Path 길어짐 = 성능 저하</span>
       </div>
     </div>
-    <div class="danger-box fragment" style="text-align:center;font-size:0.75em;">
+    <div class="danger-box" style="text-align:center;font-size:0.75em;">
       <i class="fa fa-exclamation-triangle"></i>&nbsp; <strong>"Snapshot은 백업이 아니다"</strong> — 특정 시점으로 돌아가기 위한 '임시 마커'일 뿐. 원본 VHD 손상 시 Snapshot도 함께 소실
     </div>
     <div class="grid-3" style="gap:16px;margin-top:14px;">
@@ -145,10 +145,10 @@
         <p style="font-size:0.6em;">실제 워크로드 기준 산정<br>모니터링 기반 점진적 증설<br><br><strong>NUMA Node 최적화</strong>: 물리 소켓 경계를 넘지 않도록</p>
       </div>
     </div>
-    <div class="quote-box fragment" style="text-align:center;margin-bottom:12px;">
+    <div class="quote-box" style="text-align:center;margin-bottom:12px;">
       <i class="fa fa-lightbulb" style="color:var(--accent)"></i>&nbsp; "리소스 문제의 90%는 '부족'이 아니라 <strong>'잘못된 분배'</strong>에서 발생합니다"
     </div>
-    <table class="styled-table fragment" style="font-size:0.6em;">
+    <table class="styled-table" style="font-size:0.6em;">
       <thead><tr><th style="width:20%;">구분</th><th>VDI VM</th><th>Server VM</th></tr></thead>
       <tbody>
         <tr><td style="font-weight:600;text-align:left;">핵심 가치</td><td>사용자 경험 & 동시성</td><td>서비스 안정성 & Uptime</td></tr>
@@ -166,7 +166,7 @@
   <p class="subtitle">Section 3-3 · 10분</p>
   <h2 style="text-align:center;"><i class="fa fa-triangle-exclamation" style="color:var(--warning)"></i> 주요 장애 유형</h2>
   <div style="max-width:1800px;margin:0 auto;display:flex;flex-direction:column;gap:20px;">
-    <div class="stage-card stage-red fragment">
+    <div class="stage-card stage-red">
       <div style="display:flex;align-items:center;gap:16px;margin-bottom:16px;">
         <span class="tag tag-red">유형 1</span>
         <strong style="font-size:0.9em;">Host Down / Pool Coordinator 장애</strong>
@@ -181,7 +181,7 @@
         </div>
       </div>
     </div>
-    <div class="stage-card stage-yellow fragment">
+    <div class="stage-card stage-yellow">
       <div style="display:flex;align-items:center;gap:16px;margin-bottom:16px;">
         <span class="tag tag-yellow">유형 2</span>
         <strong style="font-size:0.9em;">Storage Disconnect</strong>
@@ -195,7 +195,7 @@
         </div>
       </div>
     </div>
-    <div class="stage-card stage-yellow fragment">
+    <div class="stage-card stage-yellow">
       <div style="display:flex;align-items:center;gap:16px;margin-bottom:16px;">
         <span class="tag tag-yellow">유형 3</span>
         <strong style="font-size:0.9em;">VM Hang / Boot Failure</strong>
@@ -207,7 +207,7 @@
       </div>
     </div>
   </div>
-  <div class="danger-box fragment" style="max-width:900px;margin:14px auto 0;text-align:center;">
+  <div class="danger-box" style="max-width:900px;margin:14px auto 0;text-align:center;">
     <i class="fa fa-ban"></i>&nbsp; <strong>절대 금지</strong>: 스토리지 복구 전 VM 강제 재부팅 → 파일시스템 손상 및 디스크 체인 파손 위험
   </div>
   <aside class="notes">장애 분류를 외울 필요는 없습니다. 핵심은 '이 증상이 VM 내부 문제인가, 아니면 인프라 문제인가?'를 먼저 구분하는 것입니다.</aside>
@@ -218,7 +218,7 @@
   <p class="subtitle">Section 3-4 · 10분</p>
   <h2 style="text-align:center;"><i class="fa fa-file-lines" style="color:var(--accent)"></i> 로그 분석 & 장애 대응 원칙</h2>
   <div style="max-width:1800px;margin:0 auto;">
-    <table class="styled-table fragment" style="font-size:0.58em;margin-bottom:12px;">
+    <table class="styled-table" style="font-size:0.58em;margin-bottom:12px;">
       <thead><tr><th>계층</th><th>로그</th><th>경로</th><th>내용</th></tr></thead>
       <tbody>
         <tr><td style="font-weight:600;">Management</td><td style="color:var(--accent);font-weight:700;">xensource.log</td><td>/var/log/xensource.log</td><td>XAPI, VM 수명주기, 호스트 상태</td></tr>

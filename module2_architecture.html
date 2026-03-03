@@ -152,7 +152,7 @@
       </div>
     </div>
     <h3 style="font-size:0.55em;text-align:center;margin-bottom:12px;">장애 발생 시 동작</h3>
-    <table class="styled-table fragment">
+    <table class="styled-table">
       <thead><tr><th style="width:45%;">상황</th><th>동작</th></tr></thead>
       <tbody>
         <tr><td style="text-align:left;">Network Heartbeat 일부 손실 + Storage OK</td><td>Largest Partition 판단 → 아니면 <span style="color:var(--danger);">Self-Fence</span></td></tr>
@@ -182,7 +182,7 @@
         <tr><td>7</td><td style="text-align:left;">계획 점검 위주 환경</td><td>무중단 이동이 운영 핵심</td></tr>
       </tbody>
     </table>
-    <div class="quote-box fragment" style="margin-top:16px;text-align:center;">
+    <div class="quote-box" style="margin-top:16px;text-align:center;">
       <i class="fa fa-lightbulb" style="color:var(--accent)"></i>&nbsp; <strong>Key Takeaway</strong>: "자동화보다 통제가 중요한 환경에서는 Live Migration이 더 안전합니다"
     </div>
   </div>
@@ -215,7 +215,7 @@
       <div><strong style="font-size:0.7em;">운영 정책</strong><span style="font-size:0.58em;color:var(--text-secondary);display:block;">수동 개입 금지 정책, 로그 선 확인 절차</span></div>
     </div>
   </div>
-  <div class="danger-box fragment" style="max-width:860px;margin:16px auto 0;text-align:center;">
+  <div class="danger-box" style="max-width:860px;margin:16px auto 0;text-align:center;">
     <i class="fa fa-exclamation-triangle"></i>&nbsp; "하나라도 NO가 있다면, HA는 보호 장치가 아니라 <strong>시스템 전체 장애를 유발할 수 있는 위험 요소</strong>"
   </div>
   <aside class="notes">이 체크리스트는 핸드아웃으로 배포합니다. 고객 사이트에서 HA 구성 전에 반드시 이 5가지를 확인하세요.</aside>
@@ -309,10 +309,10 @@
         <p style="font-size:0.58em;">사용한 만큼만 점유<br>On-demand 할당, 미사용 공간 재활용</p>
       </div>
     </div>
-    <div class="warn-box fragment">
+    <div class="warn-box">
       <i class="fa fa-triangle-exclamation"></i>&nbsp; <strong>Thin Provisioned SAN 주의:</strong> XenServer에서 더 이상 사용하지 않는 블록은 SAN에서 자동 해제되지 않음 → <strong>Trim 작업</strong> 필요 (비업무 시간대 수행)
     </div>
-    <div class="code-block fragment" style="margin-top:12px;">
+    <div class="code-block" style="margin-top:12px;">
       xe host-call-plugin plugin=trim fn=do_trim args:sr_uuid=&lt;sr_uuid&gt;
     </div>
   </div>
@@ -342,7 +342,7 @@
       </div>
     </div>
     <h3 style="font-size:0.55em;text-align:center;margin-bottom:16px;">Network Bonding 유형</h3>
-    <table class="styled-table fragment" style="font-size:0.58em;">
+    <table class="styled-table" style="font-size:0.58em;">
       <thead><tr><th>유형</th><th>특징</th><th>권장 용도</th></tr></thead>
       <tbody>
         <tr><td style="font-weight:600;">Active-Passive</td><td>1 NIC Active, 장애 시 Standby 전환</td><td>안정성 우선, iSCSI는 Multipath 권장</td></tr>
@@ -360,7 +360,7 @@
       <span class="tag tag-blue"><i class="fa fa-puzzle-piece"></i> SDK (Java/C#/Python/Go)</span>
     </div>
   </div>
-  <div class="quote-box fragment" style="max-width:920px;margin:14px auto 0;text-align:center;">
+  <div class="quote-box" style="max-width:920px;margin:14px auto 0;text-align:center;">
     <i class="fa fa-lightbulb" style="color:var(--accent)"></i>&nbsp; "네트워크 분리는 HA의 전제조건. 관리 트래픽과 VM 트래픽이 하나의 NIC를 공유하면 HA가 오동작할 수 있습니다."
   </div>
   <aside class="notes">네트워크 분리는 HA의 전제조건입니다. 최소한 관리망은 별도 Bond로 구성하세요. LACP를 쓰려면 스위치 설정이 필요합니다.</aside>
