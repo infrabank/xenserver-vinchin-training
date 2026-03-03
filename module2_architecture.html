@@ -10,19 +10,19 @@
 <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet">
 <style>
 :root{--primary:#0033A1;--primary-light:#0052CC;--accent:#00B4D8;--accent-glow:#00D4FF;--mid-blue:#0077B6;--dark-bg:#0a0e1a;--card-bg:rgba(255,255,255,0.06);--card-border:rgba(255,255,255,0.1);--text-primary:#f0f4ff;--text-secondary:rgba(240,244,255,0.7);--success:#00c853;--warning:#ffab00;--danger:#ff1744;--glass:rgba(255,255,255,0.05)}
-.reveal-viewport{background:var(--dark-bg)}.reveal{font-family:'Pretendard',sans-serif;color:var(--text-primary)}.reveal h1,.reveal h2,.reveal h3,.reveal h4{font-family:'Pretendard',sans-serif;font-weight:700;color:var(--text-primary);text-transform:none;letter-spacing:-0.02em}.reveal h2{font-size:1.3em;margin-bottom:0.2em}.reveal h3{font-size:0.78em;color:var(--accent);font-weight:600}.reveal p,.reveal li{font-size:0.55em;line-height:1.6;color:var(--text-secondary)}.reveal section{text-align:left}.reveal .slides>section{padding:15px 40px;}.reveal .progress{height:3px;color:var(--accent)}.reveal .slide-number{font-family:'Pretendard';font-size:14px;color:var(--text-secondary);background:transparent}
+.reveal-viewport{background:var(--dark-bg)}.reveal{font-family:'Pretendard',sans-serif;color:var(--text-primary)}.reveal h1,.reveal h2,.reveal h3,.reveal h4{font-family:'Pretendard',sans-serif;font-weight:700;color:var(--text-primary);text-transform:none;letter-spacing:-0.02em}.reveal h2{font-size:1.3em;margin-bottom:0.2em}.reveal h3{font-size:0.78em;color:var(--accent);font-weight:600}.reveal p,.reveal li{font-size:0.55em;line-height:1.8;color:var(--text-secondary)}.reveal section{text-align:left}.reveal .slides>section{padding:15px 40px;}.reveal .progress{height:3px;color:var(--accent)}.reveal .slide-number{font-family:'Pretendard';font-size:14px;color:var(--text-secondary);background:transparent}
 .glass-card{background:var(--card-bg);backdrop-filter:blur(20px);border:1px solid var(--card-border);border-radius:16px;padding:14px;transition:all 0.3s}.glass-card:hover{border-color:rgba(0,180,216,0.3);box-shadow:0 8px 32px rgba(0,180,216,0.1)}
-.tag{display:inline-block;padding:4px 14px;border-radius:20px;font-size:0.4em;font-weight:600}.tag-blue{background:rgba(0,82,204,0.3);color:var(--accent);border:1px solid rgba(0,180,216,0.3)}.tag-green{background:rgba(0,200,83,0.15);color:var(--success);border:1px solid rgba(0,200,83,0.3)}.tag-red{background:rgba(255,23,68,0.15);color:var(--danger);border:1px solid rgba(255,23,68,0.3)}.tag-yellow{background:rgba(255,171,0,0.15);color:var(--warning);border:1px solid rgba(255,171,0,0.3)}
-.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:12px}.grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.tag{display:inline-block;padding:4px 14px;border-radius:20px;font-size:0.6em;font-weight:600}.tag-blue{background:rgba(0,82,204,0.3);color:var(--accent);border:1px solid rgba(0,180,216,0.3)}.tag-green{background:rgba(0,200,83,0.15);color:var(--success);border:1px solid rgba(0,200,83,0.3)}.tag-red{background:rgba(255,23,68,0.15);color:var(--danger);border:1px solid rgba(255,23,68,0.3)}.tag-yellow{background:rgba(255,171,0,0.15);color:var(--warning);border:1px solid rgba(255,171,0,0.3)}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:20px}.grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px}.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
 .num-circle{width:36px;height:36px;background:linear-gradient(135deg,var(--primary),var(--mid-blue));border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.75em;font-weight:800;color:#fff;flex-shrink:0;box-shadow:0 4px 16px rgba(0,51,161,0.4)}
-.styled-table{width:100%;border-collapse:separate;border-spacing:0;font-size:0.5em;border-radius:8px;overflow:hidden;border:1px solid var(--card-border)}.styled-table thead th{background:rgba(0,51,161,0.4);padding:7px 10px;font-weight:700;color:var(--text-primary);text-align:center;border-bottom:2px solid var(--accent)}.styled-table tbody td{padding:6px 10px;border-bottom:1px solid rgba(255,255,255,0.05);color:var(--text-secondary);text-align:center}.styled-table tbody tr:nth-child(even){background:rgba(255,255,255,0.02)}.styled-table tbody tr:hover{background:rgba(0,180,216,0.08)}.styled-table .highlight-col{background:rgba(0,180,216,0.08)!important;color:var(--accent)!important;font-weight:600}
-.section-line{width:60px;height:3px;background:linear-gradient(90deg,var(--accent),transparent);margin:4px 0 8px 0;border-radius:2px}.subtitle{color:var(--accent);font-size:0.45em;font-weight:500;margin-bottom:4px;letter-spacing:0.1em;text-align:center}
-.quote-box{background:rgba(0,180,216,0.08);border-left:3px solid var(--accent);border-radius:0 12px 12px 0;padding:8px 12px;font-style:italic;font-size:0.5em;color:var(--text-secondary)}
-.warn-box{background:rgba(255,171,0,0.08);border:1px solid rgba(255,171,0,0.3);border-radius:12px;padding:14px 20px;font-size:0.4em;color:var(--warning)}
-.danger-box{background:rgba(255,23,68,0.08);border:1px solid rgba(255,23,68,0.3);border-radius:12px;padding:14px 20px;font-size:0.4em;color:var(--danger)}
-.code-block{background:rgba(0,0,0,0.5);border:1px solid rgba(255,255,255,0.1);border-radius:10px;padding:8px 20px;font-family:'Fira Code',monospace;font-size:0.4em;color:var(--accent);overflow-x:auto}
-.feat-card{background:var(--card-bg);border:1px solid var(--card-border);border-radius:14px;padding:10px;text-align:center;transition:all 0.3s}.feat-card:hover{border-color:rgba(0,180,216,0.4);transform:translateY(-4px)}.feat-card .fa{font-size:1.2em;color:var(--accent);margin-bottom:10px}.feat-card h4{font-size:0.55em;margin:4px 0 2px;color:var(--text-primary)}.feat-card p{font-size:0.4em;color:var(--text-secondary);margin:0}
-.stage-card{border-radius:12px;padding:10px 24px;border-left:4px solid;background:var(--card-bg)}.stage-green{border-left-color:var(--success)}.stage-yellow{border-left-color:var(--warning)}.stage-red{border-left-color:var(--danger)}
+.styled-table{width:100%;border-collapse:separate;border-spacing:0;font-size:0.7em;border-radius:8px;overflow:hidden;border:1px solid var(--card-border)}.styled-table thead th{background:rgba(0,51,161,0.4);padding:7px 10px;font-weight:700;color:var(--text-primary);text-align:center;border-bottom:2px solid var(--accent)}.styled-table tbody td{padding:6px 10px;border-bottom:1px solid rgba(255,255,255,0.05);color:var(--text-secondary);text-align:center}.styled-table tbody tr:nth-child(even){background:rgba(255,255,255,0.02)}.styled-table tbody tr:hover{background:rgba(0,180,216,0.08)}.styled-table .highlight-col{background:rgba(0,180,216,0.08)!important;color:var(--accent)!important;font-weight:600}
+.section-line{width:60px;height:3px;background:linear-gradient(90deg,var(--accent),transparent);margin:4px 0 8px 0;border-radius:2px}.subtitle{color:var(--accent);font-size:0.65em;font-weight:500;margin-bottom:4px;letter-spacing:0.1em;text-align:center}
+.quote-box{background:rgba(0,180,216,0.08);border-left:3px solid var(--accent);border-radius:0 12px 12px 0;padding:16px 20px;font-style:italic;font-size:0.7em;color:var(--text-secondary)}
+.warn-box{background:rgba(255,171,0,0.08);border:1px solid rgba(255,171,0,0.3);border-radius:12px;padding:14px 20px;font-size:0.6em;color:var(--warning)}
+.danger-box{background:rgba(255,23,68,0.08);border:1px solid rgba(255,23,68,0.3);border-radius:12px;padding:14px 20px;font-size:0.6em;color:var(--danger)}
+.code-block{background:rgba(0,0,0,0.5);border:1px solid rgba(255,255,255,0.1);border-radius:10px;padding:8px 20px;font-family:'Fira Code',monospace;font-size:0.6em;color:var(--accent);overflow-x:auto}
+.feat-card{background:var(--card-bg);border:1px solid var(--card-border);border-radius:14px;padding:20px;text-align:center;transition:all 0.3s}.feat-card:hover{border-color:rgba(0,180,216,0.4);transform:translateY(-4px)}.feat-card .fa{font-size:1.2em;color:var(--accent);margin-bottom:16px}.feat-card h4{font-size:0.55em;margin:4px 0 2px;color:var(--text-primary)}.feat-card p{font-size:0.6em;color:var(--text-secondary);margin:0}
+.stage-card{border-radius:12px;padding:20px 28px;border-left:4px solid;background:var(--card-bg)}.stage-green{border-left-color:var(--success)}.stage-yellow{border-left-color:var(--warning)}.stage-red{border-left-color:var(--danger)}
 @keyframes pulse-glow{0%,100%{box-shadow:0 0 8px rgba(0,180,216,0.4)}50%{box-shadow:0 0 20px rgba(0,180,216,0.7)}}
 
 </style>
@@ -34,11 +34,11 @@
 <!-- TITLE -->
 <section data-background-gradient="radial-gradient(ellipse at 20% 80%, rgba(0,51,161,0.4) 0%, transparent 60%), radial-gradient(ellipse at 80% 20%, rgba(0,180,216,0.2) 0%, transparent 50%), #0a0e1a">
   <div style="text-align:center;padding-top:30px;">
-    <p class="subtitle" style="font-size:0.45em;">Module 2 · 60분</p>
+    <p class="subtitle" style="font-size:0.65em;">Module 2 · 60분</p>
     <h1 style="font-size:0.9em;margin:0;line-height:1.15;">XenServer<br><span style="background:linear-gradient(90deg,var(--accent),#66e0ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">아키텍처 & 운영 기초</span></h1>
     <div class="section-line" style="margin:16px auto;"></div>
-    <p style="font-size:0.5em;color:var(--text-secondary);">Resource Pool · HA · Storage · Networking</p>
-    <div style="display:flex;justify-content:center;gap:8px;margin-top:32px;flex-wrap:wrap;">
+    <p style="font-size:0.7em;color:var(--text-secondary);">Resource Pool · HA · Storage · Networking</p>
+    <div style="display:flex;justify-content:center;gap:16px;margin-top:32px;flex-wrap:wrap;">
       <span class="tag tag-blue"><i class="fa fa-layer-group"></i>&nbsp; Pool & Coordinator</span>
       <span class="tag tag-blue"><i class="fa fa-shield-halved"></i>&nbsp; High Availability</span>
       <span class="tag tag-blue"><i class="fa fa-hard-drive"></i>&nbsp; Storage Architecture</span>
@@ -62,7 +62,7 @@
         <li><i class="fa fa-check" style="color:var(--success)"></i> 공통 네트워크/스토리지 프레임워크 공유</li>
         <li><i class="fa fa-check" style="color:var(--success)"></i> VM 마이그레이션, 워크로드 밸런싱</li>
       </ul>
-      <div style="background:rgba(255,171,0,0.08);border:1px solid rgba(255,171,0,0.3);border-radius:8px;padding:10px;font-size:0.55em;color:var(--warning);margin-top:12px;">
+      <div style="background:rgba(255,171,0,0.08);border:1px solid rgba(255,171,0,0.3);border-radius:8px;padding:20px;font-size:0.55em;color:var(--warning);margin-top:12px;">
         <i class="fa fa-triangle-exclamation"></i> Dom0를 문서화되지 않은 방식으로 변경 시 Upgrade 문제 발생 가능
       </div>
     </div>
@@ -86,7 +86,7 @@
         <li style="color:var(--success);font-weight:600;"><i class="fa fa-shield-halved"></i> 기존 실행 중 VM은 <strong>영향 없음</strong></li>
         <li style="color:var(--warning);"><i class="fa fa-ban"></i> 관리 작업(시작/중지/이동)만 불가</li>
       </ul>
-      <div style="background:rgba(0,51,161,0.2);border-radius:8px;padding:10px;font-size:0.55em;text-align:center;margin-top:12px;color:var(--accent);">
+      <div style="background:rgba(0,51,161,0.2);border-radius:8px;padding:20px;font-size:0.55em;text-align:center;margin-top:12px;color:var(--accent);">
         <strong>핵심:</strong> Coordinator 없어도 기존 VM은 계속 동작
       </div>
     </div>
@@ -97,21 +97,21 @@
 <!-- COORDINATOR 변경 방법 -->
 <section data-background-gradient="radial-gradient(ellipse at 70% 30%, rgba(0,119,182,0.2) 0%, transparent 55%), #0a0e1a">
   <h2 style="text-align:center;font-size:0.55em;"><i class="fa fa-exchange-alt" style="color:var(--accent)"></i> Coordinator 변경 방법</h2>
-  <div style="max-width:880px;margin:0 auto;display:flex;flex-direction:column;gap:12px;">
-    <div class="glass-card" style="display:flex;align-items:center;gap:8px;padding:10px 24px;">
+  <div style="max-width:1800px;margin:0 auto;display:flex;flex-direction:column;gap:20px;">
+    <div class="glass-card" style="display:flex;align-items:center;gap:16px;padding:20px 28px;">
       <div class="num-circle">1</div>
-      <div><strong style="font-size:0.55em;">XenCenter (GUI)</strong><br><span style="font-size:0.4em;color:var(--text-secondary);">Maintenance mode → 새 Coordinator 선택</span></div>
+      <div><strong style="font-size:0.55em;">XenCenter (GUI)</strong><br><span style="font-size:0.6em;color:var(--text-secondary);">Maintenance mode → 새 Coordinator 선택</span></div>
       <span class="tag tag-green" style="margin-left:auto;">정상 상태</span>
     </div>
-    <div class="glass-card" style="display:flex;align-items:center;gap:8px;padding:10px 24px;">
+    <div class="glass-card" style="display:flex;align-items:center;gap:16px;padding:20px 28px;">
       <div class="num-circle">2</div>
-      <div><strong style="font-size:0.55em;">CLI (정상 상태)</strong><br><div class="code-block" style="margin-top:6px;padding:8px 12px;">xe pool-designate-new-master host-uuid=&lt;uuid&gt;</div></div>
+      <div><strong style="font-size:0.55em;">CLI (정상 상태)</strong><br><div class="code-block" style="margin-top:6px;padding:16px 20px;">xe pool-designate-new-master host-uuid=&lt;uuid&gt;</div></div>
       <span class="tag tag-green" style="margin-left:auto;">정상 상태</span>
     </div>
-    <div class="glass-card" style="display:flex;align-items:flex-start;gap:8px;padding:10px 24px;border-color:rgba(255,23,68,0.3);">
+    <div class="glass-card" style="display:flex;align-items:flex-start;gap:16px;padding:20px 28px;border-color:rgba(255,23,68,0.3);">
       <div class="num-circle" style="background:linear-gradient(135deg,var(--danger),#ff6b6b);">3</div>
       <div><strong style="font-size:0.55em;">CLI (장애 상태)</strong>
-        <div class="code-block" style="margin-top:6px;padding:8px 12px;">
+        <div class="code-block" style="margin-top:6px;padding:16px 20px;">
           xe host-is-in-emergency-mode &nbsp;&nbsp;<span style="color:rgba(255,255,255,0.4);"># → true 확인</span><br>
           xe pool-emergency-transition-to-master<br>
           xe pool-recover-slaves
@@ -119,9 +119,9 @@
       </div>
       <span class="tag tag-red" style="margin-left:auto;">장애 상태</span>
     </div>
-    <div class="glass-card" style="display:flex;align-items:center;gap:8px;padding:10px 24px;border-color:rgba(0,200,83,0.3);">
+    <div class="glass-card" style="display:flex;align-items:center;gap:16px;padding:20px 28px;border-color:rgba(0,200,83,0.3);">
       <div class="num-circle" style="background:linear-gradient(135deg,var(--success),#00a152);">4</div>
-      <div><strong style="font-size:0.55em;">HA Automation</strong><br><span style="font-size:0.4em;color:var(--success);">자동 Coordinator 재선출 — 수동 개입 불필요</span></div>
+      <div><strong style="font-size:0.55em;">HA Automation</strong><br><span style="font-size:0.6em;color:var(--success);">자동 Coordinator 재선출 — 수동 개입 불필요</span></div>
       <span class="tag tag-green" style="margin-left:auto;">자동화</span>
     </div>
   </div>
@@ -132,22 +132,22 @@
 <section data-background-gradient="radial-gradient(ellipse at 30% 70%, rgba(0,51,161,0.25) 0%, transparent 55%), #0a0e1a">
   <p class="subtitle">Section 2-2 · 15분</p>
   <h2 style="text-align:center;"><i class="fa fa-shield-halved" style="color:var(--accent)"></i> HA (High Availability) 동작 원리</h2>
-  <div style="max-width:920px;margin:0 auto;">
-    <div class="grid-2" style="gap:10px;margin-bottom:6px;">
-      <div class="glass-card" style="padding:10px;">
+  <div style="max-width:1800px;margin:0 auto;">
+    <div class="grid-2" style="gap:16px;margin-bottom:12px;">
+      <div class="glass-card" style="padding:20px;">
         <h3 style="font-size:0.55em;"><i class="fa fa-wifi"></i> Network Heartbeat</h3>
-        <ul style="font-size:0.38em;list-style:none;padding:0;">
-          <li style="margin:5px 0;"><i class="fa fa-circle" style="color:var(--accent);font-size:0.5em;"></i> UDP 694로 Pool 내 모든 호스트에 전송</li>
-          <li style="margin:5px 0;"><i class="fa fa-circle" style="color:var(--accent);font-size:0.5em;"></i> 고정 IP 필요</li>
-          <li style="margin:5px 0;"><i class="fa fa-circle" style="color:var(--accent);font-size:0.5em;"></i> 분리된 bonded 관리 네트워크 필요</li>
+        <ul style="font-size:0.58em;list-style:none;padding:0;">
+          <li style="margin:5px 0;"><i class="fa fa-circle" style="color:var(--accent);font-size:0.7em;"></i> UDP 694로 Pool 내 모든 호스트에 전송</li>
+          <li style="margin:5px 0;"><i class="fa fa-circle" style="color:var(--accent);font-size:0.7em;"></i> 고정 IP 필요</li>
+          <li style="margin:5px 0;"><i class="fa fa-circle" style="color:var(--accent);font-size:0.7em;"></i> 분리된 bonded 관리 네트워크 필요</li>
         </ul>
       </div>
-      <div class="glass-card" style="padding:10px;">
+      <div class="glass-card" style="padding:20px;">
         <h3 style="font-size:0.55em;"><i class="fa fa-hard-drive"></i> Storage Heartbeat</h3>
-        <ul style="font-size:0.38em;list-style:none;padding:0;">
-          <li style="margin:5px 0;"><i class="fa fa-circle" style="color:var(--accent);font-size:0.5em;"></i> 공유 스토리지 (iSCSI/NFS/FC/GFS2)</li>
-          <li style="margin:5px 0;"><i class="fa fa-circle" style="color:var(--accent);font-size:0.5em;"></i> 4GB LUN 공간에 상태 기록</li>
-          <li style="margin:5px 0;"><i class="fa fa-circle" style="color:var(--accent);font-size:0.5em;"></i> 60초 타임아웃으로 Liveset 유지</li>
+        <ul style="font-size:0.58em;list-style:none;padding:0;">
+          <li style="margin:5px 0;"><i class="fa fa-circle" style="color:var(--accent);font-size:0.7em;"></i> 공유 스토리지 (iSCSI/NFS/FC/GFS2)</li>
+          <li style="margin:5px 0;"><i class="fa fa-circle" style="color:var(--accent);font-size:0.7em;"></i> 4GB LUN 공간에 상태 기록</li>
+          <li style="margin:5px 0;"><i class="fa fa-circle" style="color:var(--accent);font-size:0.7em;"></i> 60초 타임아웃으로 Liveset 유지</li>
         </ul>
       </div>
     </div>
@@ -168,8 +168,8 @@
 <!-- HA vs LIVE MIGRATION -->
 <section data-background-gradient="radial-gradient(ellipse at 60% 40%, rgba(0,119,182,0.2) 0%, transparent 55%), #0a0e1a">
   <h2 style="text-align:center;font-size:0.55em;"><i class="fa fa-scale-balanced" style="color:var(--accent)"></i> HA vs Live Migration 판단 기준</h2>
-  <p style="text-align:center;font-size:0.45em;color:var(--text-secondary);margin-bottom:6px;">다음 조건 중 <strong style="color:var(--warning);">2개 이상</strong> 해당되면 HA보다 Live Migration이 더 안전</p>
-  <div style="max-width:880px;margin:0 auto;">
+  <p style="text-align:center;font-size:0.65em;color:var(--text-secondary);margin-bottom:12px;">다음 조건 중 <strong style="color:var(--warning);">2개 이상</strong> 해당되면 HA보다 Live Migration이 더 안전</p>
+  <div style="max-width:1800px;margin:0 auto;">
     <table class="styled-table">
       <thead><tr><th style="width:5%;">#</th><th style="width:40%;">운영 환경 조건</th><th>기술적 위험</th></tr></thead>
       <tbody>
@@ -192,27 +192,27 @@
 <!-- HA CHECKLIST -->
 <section data-background-gradient="radial-gradient(ellipse at 40% 60%, rgba(0,82,204,0.2) 0%, transparent 55%), #0a0e1a">
   <h2 style="text-align:center;font-size:0.55em;"><i class="fa fa-clipboard-check" style="color:var(--accent)"></i> HA 안전 구성 체크리스트</h2>
-  <p style="text-align:center;font-size:0.45em;color:var(--text-secondary);margin-bottom:6px;">5개 카테고리, <strong style="color:var(--warning);">모든 항목이 YES</strong>여야 안전</p>
-  <div style="max-width:860px;margin:0 auto;display:flex;flex-direction:column;gap:10px;">
-    <div class="glass-card" style="display:flex;gap:12px;padding:8px 20px;align-items:center;">
+  <p style="text-align:center;font-size:0.65em;color:var(--text-secondary);margin-bottom:12px;">5개 카테고리, <strong style="color:var(--warning);">모든 항목이 YES</strong>여야 안전</p>
+  <div style="max-width:1800px;margin:0 auto;display:flex;flex-direction:column;gap:16px;">
+    <div class="glass-card" style="display:flex;gap:20px;padding:8px 20px;align-items:center;">
       <div class="num-circle" style="width:40px;height:40px;font-size:0.9em;">1</div>
-      <div><strong style="font-size:0.5em;">네트워크 구성</strong><span style="font-size:0.38em;color:var(--text-secondary);display:block;">Bond 구성, 이중 스위치, 관리망/VM 트래픽 분리</span></div>
+      <div><strong style="font-size:0.7em;">네트워크 구성</strong><span style="font-size:0.58em;color:var(--text-secondary);display:block;">Bond 구성, 이중 스위치, 관리망/VM 트래픽 분리</span></div>
     </div>
-    <div class="glass-card" style="display:flex;gap:12px;padding:8px 20px;align-items:center;">
+    <div class="glass-card" style="display:flex;gap:20px;padding:8px 20px;align-items:center;">
       <div class="num-circle" style="width:40px;height:40px;font-size:0.9em;">2</div>
-      <div><strong style="font-size:0.5em;">스토리지/HA SR</strong><span style="font-size:0.38em;color:var(--text-secondary);display:block;">Shared Storage, 다중 경로, Failover 테스트 완료</span></div>
+      <div><strong style="font-size:0.7em;">스토리지/HA SR</strong><span style="font-size:0.58em;color:var(--text-secondary);display:block;">Shared Storage, 다중 경로, Failover 테스트 완료</span></div>
     </div>
-    <div class="glass-card" style="display:flex;gap:12px;padding:8px 20px;align-items:center;">
+    <div class="glass-card" style="display:flex;gap:20px;padding:8px 20px;align-items:center;">
       <div class="num-circle" style="width:40px;height:40px;font-size:0.9em;">3</div>
-      <div><strong style="font-size:0.5em;">용량 설계 (N-1)</strong><span style="font-size:0.38em;color:var(--text-secondary);display:block;">1대 장애 시 남은 Host가 모든 VM 수용 가능</span></div>
+      <div><strong style="font-size:0.7em;">용량 설계 (N-1)</strong><span style="font-size:0.58em;color:var(--text-secondary);display:block;">1대 장애 시 남은 Host가 모든 VM 수용 가능</span></div>
     </div>
-    <div class="glass-card" style="display:flex;gap:12px;padding:8px 20px;align-items:center;">
+    <div class="glass-card" style="display:flex;gap:20px;padding:8px 20px;align-items:center;">
       <div class="num-circle" style="width:40px;height:40px;font-size:0.9em;">4</div>
-      <div><strong style="font-size:0.5em;">VM 정책</strong><span style="font-size:0.38em;color:var(--text-secondary);display:block;">Protected VM 최소화, Restart Priority 구분, Anti-Affinity</span></div>
+      <div><strong style="font-size:0.7em;">VM 정책</strong><span style="font-size:0.58em;color:var(--text-secondary);display:block;">Protected VM 최소화, Restart Priority 구분, Anti-Affinity</span></div>
     </div>
-    <div class="glass-card" style="display:flex;gap:12px;padding:8px 20px;align-items:center;">
+    <div class="glass-card" style="display:flex;gap:20px;padding:8px 20px;align-items:center;">
       <div class="num-circle" style="width:40px;height:40px;font-size:0.9em;">5</div>
-      <div><strong style="font-size:0.5em;">운영 정책</strong><span style="font-size:0.38em;color:var(--text-secondary);display:block;">수동 개입 금지 정책, 로그 선 확인 절차</span></div>
+      <div><strong style="font-size:0.7em;">운영 정책</strong><span style="font-size:0.58em;color:var(--text-secondary);display:block;">수동 개입 금지 정책, 로그 선 확인 절차</span></div>
     </div>
   </div>
   <div class="danger-box fragment" style="max-width:860px;margin:16px auto 0;text-align:center;">
@@ -224,7 +224,7 @@
 <!-- HA 환경 판별 -->
 <section data-background-gradient="radial-gradient(ellipse at 80% 80%, rgba(0,51,161,0.2) 0%, transparent 50%), #0a0e1a">
   <h2 style="text-align:center;font-size:0.55em;">HA 사용 가능/금지 환경 판별표</h2>
-  <div style="max-width:860px;margin:0 auto;">
+  <div style="max-width:1800px;margin:0 auto;">
     <table class="styled-table">
       <thead><tr><th style="width:25%;">비교 항목</th><th style="width:37%;" class="highlight-col"><i class="fa fa-check-circle"></i> HA 사용 가능</th><th style="width:38%;"><i class="fa fa-ban" style="color:var(--danger)"></i> HA 사용 금지</th></tr></thead>
       <tbody>
@@ -243,32 +243,32 @@
 <section data-background-gradient="radial-gradient(ellipse at 50% 50%, rgba(0,119,182,0.15) 0%, transparent 50%), #0a0e1a">
   <p class="subtitle">Section 2-3 · 15분</p>
   <h2 style="text-align:center;"><i class="fa fa-hard-drive" style="color:var(--accent)"></i> 스토리지 아키텍처</h2>
-  <div style="max-width:920px;margin:0 auto;">
-    <div class="grid-5" style="grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:8px;">
+  <div style="max-width:1800px;margin:0 auto;">
+    <div class="grid-5" style="grid-template-columns:repeat(5,1fr);gap:16px;margin-bottom:14px;">
       <div class="feat-card fragment" style="padding:14px;">
         <i class="fa fa-compact-disc"></i>
-        <h4 style="font-size:0.45em;">VDI</h4>
-        <p style="font-size:0.5em;">Virtual Disk Image<br>VM 디스크 오브젝트</p>
+        <h4 style="font-size:0.65em;">VDI</h4>
+        <p style="font-size:0.7em;">Virtual Disk Image<br>VM 디스크 오브젝트</p>
       </div>
       <div class="feat-card fragment" style="padding:14px;">
         <i class="fa fa-file"></i>
-        <h4 style="font-size:0.45em;">VHD</h4>
-        <p style="font-size:0.5em;">가장 일반적 포맷<br>Clone 시 Base 공유</p>
+        <h4 style="font-size:0.65em;">VHD</h4>
+        <p style="font-size:0.7em;">가장 일반적 포맷<br>Clone 시 Base 공유</p>
       </div>
       <div class="feat-card fragment" style="padding:14px;">
         <i class="fa fa-database"></i>
-        <h4 style="font-size:0.45em;">SR</h4>
-        <p style="font-size:0.5em;">Storage Repository<br>VDI 저장 위치</p>
+        <h4 style="font-size:0.65em;">SR</h4>
+        <p style="font-size:0.7em;">Storage Repository<br>VDI 저장 위치</p>
       </div>
       <div class="feat-card fragment" style="padding:14px;">
         <i class="fa fa-link"></i>
-        <h4 style="font-size:0.45em;">PBD</h4>
-        <p style="font-size:0.5em;">Physical Block Device<br>Host ↔ SR 연결</p>
+        <h4 style="font-size:0.65em;">PBD</h4>
+        <p style="font-size:0.7em;">Physical Block Device<br>Host ↔ SR 연결</p>
       </div>
       <div class="feat-card fragment" style="padding:14px;">
         <i class="fa fa-plug"></i>
-        <h4 style="font-size:0.45em;">VBD</h4>
-        <p style="font-size:0.5em;">Virtual Block Device<br>VM ↔ VDI 연결</p>
+        <h4 style="font-size:0.65em;">VBD</h4>
+        <p style="font-size:0.7em;">Virtual Block Device<br>VM ↔ VDI 연결</p>
       </div>
     </div>
     <table class="styled-table fragment" style="font-size:0.62em;">
@@ -292,21 +292,21 @@
 <!-- THICK vs THIN -->
 <section data-background-gradient="radial-gradient(ellipse at 30% 30%, rgba(0,82,204,0.15) 0%, transparent 50%), #0a0e1a">
   <h2 style="text-align:center;font-size:0.55em;">Thick vs Thin Provisioning</h2>
-  <div style="max-width:800px;margin:0 auto;">
-    <div class="grid-2" style="gap:12px;margin-bottom:8px;">
-      <div class="glass-card" style="text-align:center;padding:12px;border-color:rgba(255,171,0,0.3);">
+  <div style="max-width:1800px;margin:0 auto;">
+    <div class="grid-2" style="gap:20px;margin-bottom:14px;">
+      <div class="glass-card" style="text-align:center;padding:20px;border-color:rgba(255,171,0,0.3);">
         <i class="fa fa-expand" style="font-size:1.2em;color:var(--warning);margin-bottom:12px;"></i>
         <h3 style="font-size:0.9em;color:var(--warning);">Thick Provisioning</h3>
-        <p style="font-size:0.45em;margin-top:8px;">75GB 디스크 / 25GB 사용 시</p>
+        <p style="font-size:0.65em;margin-top:8px;">75GB 디스크 / 25GB 사용 시</p>
         <div style="font-size:1.2em;font-weight:900;color:var(--warning);margin:12px 0;">75GB</div>
-        <p style="font-size:0.37em;">물리 공간 전체 점유<br>즉시 전체 예약, 대규모 환경에서 비효율</p>
+        <p style="font-size:0.58em;">물리 공간 전체 점유<br>즉시 전체 예약, 대규모 환경에서 비효율</p>
       </div>
-      <div class="glass-card" style="text-align:center;padding:12px;border-color:rgba(0,200,83,0.3);">
+      <div class="glass-card" style="text-align:center;padding:20px;border-color:rgba(0,200,83,0.3);">
         <i class="fa fa-compress" style="font-size:1.2em;color:var(--success);margin-bottom:12px;"></i>
         <h3 style="font-size:0.9em;color:var(--success);">Thin Provisioning</h3>
-        <p style="font-size:0.45em;margin-top:8px;">75GB 디스크 / 25GB 사용 시</p>
+        <p style="font-size:0.65em;margin-top:8px;">75GB 디스크 / 25GB 사용 시</p>
         <div style="font-size:1.2em;font-weight:900;color:var(--success);margin:12px 0;">25GB</div>
-        <p style="font-size:0.37em;">사용한 만큼만 점유<br>On-demand 할당, 미사용 공간 재활용</p>
+        <p style="font-size:0.58em;">사용한 만큼만 점유<br>On-demand 할당, 미사용 공간 재활용</p>
       </div>
     </div>
     <div class="warn-box fragment">
@@ -323,26 +323,26 @@
 <section data-background-gradient="radial-gradient(ellipse at 70% 70%, rgba(0,51,161,0.2) 0%, transparent 55%), #0a0e1a">
   <p class="subtitle">Section 2-4 · 15분</p>
   <h2 style="text-align:center;"><i class="fa fa-network-wired" style="color:var(--accent)"></i> 네트워킹 & 관리도구</h2>
-  <div style="max-width:920px;margin:0 auto;">
-    <div class="grid-3" style="gap:8px;margin-bottom:6px;">
-      <div class="glass-card" style="padding:8px;text-align:center;">
-        <i class="fa fa-arrow-right-arrow-left" style="color:var(--accent);font-size:0.55em;margin-bottom:8px;"></i>
+  <div style="max-width:1800px;margin:0 auto;">
+    <div class="grid-3" style="gap:16px;margin-bottom:12px;">
+      <div class="glass-card" style="padding:20px;text-align:center;">
+        <i class="fa fa-arrow-right-arrow-left" style="color:var(--accent);font-size:0.55em;margin-bottom:14px;"></i>
         <h4 style="font-size:0.75em;">Management Traffic</h4>
         <p style="font-size:0.58em;">API 호출, HA, VM Migration</p>
       </div>
-      <div class="glass-card" style="padding:8px;text-align:center;">
-        <i class="fa fa-desktop" style="color:var(--accent);font-size:0.55em;margin-bottom:8px;"></i>
+      <div class="glass-card" style="padding:20px;text-align:center;">
+        <i class="fa fa-desktop" style="color:var(--accent);font-size:0.55em;margin-bottom:14px;"></i>
         <h4 style="font-size:0.75em;">VM Traffic</h4>
         <p style="font-size:0.58em;">VM ↔ Backend 통신</p>
       </div>
-      <div class="glass-card" style="padding:8px;text-align:center;">
-        <i class="fa fa-hard-drive" style="color:var(--accent);font-size:0.55em;margin-bottom:8px;"></i>
+      <div class="glass-card" style="padding:20px;text-align:center;">
+        <i class="fa fa-hard-drive" style="color:var(--accent);font-size:0.55em;margin-bottom:14px;"></i>
         <h4 style="font-size:0.75em;">Storage Traffic</h4>
         <p style="font-size:0.58em;">iSCSI/NFS 전용 (옵션)</p>
       </div>
     </div>
-    <h3 style="font-size:0.55em;text-align:center;margin-bottom:10px;">Network Bonding 유형</h3>
-    <table class="styled-table fragment" style="font-size:0.38em;">
+    <h3 style="font-size:0.55em;text-align:center;margin-bottom:16px;">Network Bonding 유형</h3>
+    <table class="styled-table fragment" style="font-size:0.58em;">
       <thead><tr><th>유형</th><th>특징</th><th>권장 용도</th></tr></thead>
       <tbody>
         <tr><td style="font-weight:600;">Active-Passive</td><td>1 NIC Active, 장애 시 Standby 전환</td><td>안정성 우선, iSCSI는 Multipath 권장</td></tr>
@@ -351,7 +351,7 @@
       </tbody>
     </table>
     <h3 style="font-size:0.55em;text-align:center;margin:16px 0 10px;">관리 도구</h3>
-    <div style="display:flex;flex-wrap:wrap;gap:8px;justify-content:center;">
+    <div style="display:flex;flex-wrap:wrap;gap:16px;justify-content:center;">
       <span class="tag tag-blue"><i class="fa fa-desktop"></i> XenCenter (Windows GUI)</span>
       <span class="tag tag-blue"><i class="fa fa-terminal"></i> xe CLI (Linux)</span>
       <span class="tag tag-blue"><i class="fa fa-code"></i> PowerShell</span>
@@ -372,16 +372,16 @@
     <div style="width:120px;height:120px;background:linear-gradient(135deg,var(--primary),var(--accent));border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:3.5em;font-weight:900;color:#fff;margin:0 auto 24px;box-shadow:0 12px 48px rgba(0,180,216,0.3);">?</div>
     <h1 style="font-size:1.2em;">모듈 2 Q&A</h1>
     <div style="max-width:700px;margin:24px auto 0;text-align:left;">
-      <div class="glass-card" style="padding:10px;margin-bottom:12px;">
-        <p style="font-size:0.45em;margin:0;"><strong style="color:var(--accent);">Q. Coordinator가 죽으면 VM도 죽나요?</strong><br>
+      <div class="glass-card" style="padding:20px;margin-bottom:12px;">
+        <p style="font-size:0.65em;margin:0;"><strong style="color:var(--accent);">Q. Coordinator가 죽으면 VM도 죽나요?</strong><br>
         <span style="color:var(--text-secondary);">A. 아닙니다. 기존 실행 중 VM은 영향 없음. 관리 작업만 불가합니다.</span></p>
       </div>
-      <div class="glass-card" style="padding:10px;margin-bottom:12px;">
-        <p style="font-size:0.45em;margin:0;"><strong style="color:var(--accent);">Q. NFS와 iSCSI 중 어떤 것이 좋나요?</strong><br>
+      <div class="glass-card" style="padding:20px;margin-bottom:12px;">
+        <p style="font-size:0.65em;margin:0;"><strong style="color:var(--accent);">Q. NFS와 iSCSI 중 어떤 것이 좋나요?</strong><br>
         <span style="color:var(--text-secondary);">A. DR 필요 → LVM(iSCSI/FC), Thin Provisioning 필요 → NFS 또는 GFS2</span></p>
       </div>
-      <div class="glass-card" style="padding:10px;">
-        <p style="font-size:0.45em;margin:0;"><strong style="color:var(--accent);">Q. Pool에 최대 몇 대 Host를 넣을 수 있나요?</strong><br>
+      <div class="glass-card" style="padding:20px;">
+        <p style="font-size:0.65em;margin:0;"><strong style="color:var(--accent);">Q. Pool에 최대 몇 대 Host를 넣을 수 있나요?</strong><br>
         <span style="color:var(--text-secondary);">A. LVM/NFS: 32대, GFS2: 16대</span></p>
       </div>
     </div>
