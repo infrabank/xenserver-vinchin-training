@@ -242,48 +242,49 @@
 <!-- 2-3: STORAGE -->
 <section data-background-gradient="radial-gradient(ellipse at 50% 50%, rgba(0,119,182,0.15) 0%, transparent 50%), #0a0e1a">
   <p style="text-align:center;color:var(--accent);font-size:0.55em;margin:0 0 4px;">Section 2-3 · 15분</p>
-  <h2 style="text-align:center;font-size:1.4em;margin-bottom:12px;"><i class="fa fa-hard-drive" style="color:var(--accent)"></i> 스토리지 아키텍처</h2>
-  <div style="display:grid;grid-template-columns:280px 1fr;gap:24px;">
-    <!-- 좌: 핵심 오브젝트 5개 (세로 배열, 컴팩트) -->
-    <div style="display:flex;flex-direction:column;gap:10px;">
-      <div style="background:var(--card-bg);border:1px solid var(--card-border);border-radius:10px;padding:12px 16px;display:flex;align-items:center;gap:12px;">
-        <i class="fa fa-compact-disc" style="color:var(--accent);font-size:1.2em;width:28px;text-align:center;"></i>
-        <div><strong style="font-size:0.7em;">VDI</strong><br><span style="font-size:0.55em;color:var(--text-secondary);">Virtual Disk Image</span></div>
-      </div>
-      <div style="background:var(--card-bg);border:1px solid var(--card-border);border-radius:10px;padding:12px 16px;display:flex;align-items:center;gap:12px;">
-        <i class="fa fa-file" style="color:var(--accent);font-size:1.2em;width:28px;text-align:center;"></i>
-        <div><strong style="font-size:0.7em;">VHD</strong><br><span style="font-size:0.55em;color:var(--text-secondary);">일반적 포맷, Clone 공유</span></div>
-      </div>
-      <div style="background:var(--card-bg);border:1px solid var(--card-border);border-radius:10px;padding:12px 16px;display:flex;align-items:center;gap:12px;">
-        <i class="fa fa-database" style="color:var(--accent);font-size:1.2em;width:28px;text-align:center;"></i>
-        <div><strong style="font-size:0.7em;">SR</strong><br><span style="font-size:0.55em;color:var(--text-secondary);">Storage Repository</span></div>
-      </div>
-      <div style="background:var(--card-bg);border:1px solid var(--card-border);border-radius:10px;padding:12px 16px;display:flex;align-items:center;gap:12px;">
-        <i class="fa fa-link" style="color:var(--accent);font-size:1.2em;width:28px;text-align:center;"></i>
-        <div><strong style="font-size:0.7em;">PBD</strong><br><span style="font-size:0.55em;color:var(--text-secondary);">Host ↔ SR 연결</span></div>
-      </div>
-      <div style="background:var(--card-bg);border:1px solid var(--card-border);border-radius:10px;padding:12px 16px;display:flex;align-items:center;gap:12px;">
-        <i class="fa fa-plug" style="color:var(--accent);font-size:1.2em;width:28px;text-align:center;"></i>
-        <div><strong style="font-size:0.7em;">VBD</strong><br><span style="font-size:0.55em;color:var(--text-secondary);">VM ↔ VDI 연결</span></div>
-      </div>
+  <h2 style="text-align:center;font-size:1.4em;margin-bottom:14px;"><i class="fa fa-hard-drive" style="color:var(--accent)"></i> 스토리지 아키텍처</h2>
+  <!-- 상단: 5개 오브젝트 가로 나열 -->
+  <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-bottom:18px;">
+    <div style="background:var(--card-bg);border:1px solid var(--card-border);border-radius:12px;padding:16px;text-align:center;">
+      <i class="fa fa-compact-disc" style="color:var(--accent);font-size:1.6em;"></i>
+      <div style="font-size:0.85em;font-weight:800;margin:8px 0 2px;">VDI</div>
+      <div style="font-size:0.55em;color:var(--text-secondary);">Virtual Disk Image<br>VM 디스크 오브젝트</div>
     </div>
-    <!-- 우: 스토리지 유형 비교 테이블 -->
-    <div>
-      <table class="styled-table" style="font-size:0.65em;">
-        <thead><tr><th style="width:18%;">구분</th><th>파일 기반 (NFS/SMB)</th><th>블록 LVM (iSCSI/FC)</th><th>블록 GFS2 (iSCSI/FC)</th></tr></thead>
-        <tbody>
-          <tr><td style="font-weight:600;text-align:left;">VDI 포맷</td><td>VHD 파일</td><td>VHD on Block</td><td>QCOW2 on GFS2</td></tr>
-          <tr><td style="font-weight:600;text-align:left;">Thin Provisioning</td><td style="color:var(--success);">Native 지원</td><td style="color:var(--danger);">미지원</td><td style="color:var(--success);">지원</td></tr>
-          <tr><td style="font-weight:600;text-align:left;">DR</td><td style="color:var(--danger);">미지원</td><td style="color:var(--success);font-weight:700;">지원 ✓</td><td style="color:var(--danger);">미지원</td></tr>
-          <tr><td style="font-weight:600;text-align:left;">Max VDI/SR</td><td>20,000</td><td>1,000</td><td>20,000</td></tr>
-          <tr><td style="font-weight:600;text-align:left;">Max VM Disk</td><td>2 TB</td><td>2 TB</td><td style="color:var(--accent);font-weight:700;">16 TB</td></tr>
-          <tr><td style="font-weight:600;text-align:left;">Max Pool Size</td><td>32</td><td>32</td><td>16</td></tr>
-        </tbody>
-      </table>
-      <div style="background:rgba(0,180,216,0.08);border-left:3px solid var(--accent);border-radius:0 10px 10px 0;padding:12px 18px;margin-top:14px;font-size:0.65em;color:var(--text-secondary);">
-        <i class="fa fa-lightbulb" style="color:var(--accent)"></i>&nbsp; <strong style="color:var(--accent);">DR을 쓰려면 Block-based LVM이 필수</strong>. GFS2는 Thin Provisioning 가능하지만 DR은 불가.
-      </div>
+    <div style="background:var(--card-bg);border:1px solid var(--card-border);border-radius:12px;padding:16px;text-align:center;">
+      <i class="fa fa-file" style="color:var(--accent);font-size:1.6em;"></i>
+      <div style="font-size:0.85em;font-weight:800;margin:8px 0 2px;">VHD</div>
+      <div style="font-size:0.55em;color:var(--text-secondary);">가장 일반적 포맷<br>Clone 시 Base 공유</div>
     </div>
+    <div style="background:var(--card-bg);border:1px solid var(--card-border);border-radius:12px;padding:16px;text-align:center;">
+      <i class="fa fa-database" style="color:var(--accent);font-size:1.6em;"></i>
+      <div style="font-size:0.85em;font-weight:800;margin:8px 0 2px;">SR</div>
+      <div style="font-size:0.55em;color:var(--text-secondary);">Storage Repository<br>VDI 저장 위치</div>
+    </div>
+    <div style="background:var(--card-bg);border:1px solid var(--card-border);border-radius:12px;padding:16px;text-align:center;">
+      <i class="fa fa-link" style="color:var(--accent);font-size:1.6em;"></i>
+      <div style="font-size:0.85em;font-weight:800;margin:8px 0 2px;">PBD</div>
+      <div style="font-size:0.55em;color:var(--text-secondary);">Physical Block Device<br>Host ↔ SR 연결</div>
+    </div>
+    <div style="background:var(--card-bg);border:1px solid var(--card-border);border-radius:12px;padding:16px;text-align:center;">
+      <i class="fa fa-plug" style="color:var(--accent);font-size:1.6em;"></i>
+      <div style="font-size:0.85em;font-weight:800;margin:8px 0 2px;">VBD</div>
+      <div style="font-size:0.55em;color:var(--text-secondary);">Virtual Block Device<br>VM ↔ VDI 연결</div>
+    </div>
+  </div>
+  <!-- 하단: 비교 테이블 + Key Takeaway -->
+  <table class="styled-table" style="font-size:0.65em;">
+    <thead><tr><th style="width:18%;">구분</th><th>파일 기반 (NFS/SMB)</th><th>블록 LVM (iSCSI/FC)</th><th>블록 GFS2 (iSCSI/FC)</th></tr></thead>
+    <tbody>
+      <tr><td style="font-weight:600;text-align:left;">VDI 포맷</td><td>VHD 파일</td><td>VHD on Block</td><td>QCOW2 on GFS2</td></tr>
+      <tr><td style="font-weight:600;text-align:left;">Thin Provisioning</td><td style="color:var(--success);">Native 지원</td><td style="color:var(--danger);">미지원</td><td style="color:var(--success);">지원</td></tr>
+      <tr><td style="font-weight:600;text-align:left;">DR</td><td style="color:var(--danger);">미지원</td><td style="color:var(--success);font-weight:700;">지원 ✓</td><td style="color:var(--danger);">미지원</td></tr>
+      <tr><td style="font-weight:600;text-align:left;">Max VDI/SR</td><td>20,000</td><td>1,000</td><td>20,000</td></tr>
+      <tr><td style="font-weight:600;text-align:left;">Max VM Disk</td><td>2 TB</td><td>2 TB</td><td style="color:var(--accent);font-weight:700;">16 TB</td></tr>
+      <tr><td style="font-weight:600;text-align:left;">Max Pool Size</td><td>32</td><td>32</td><td>16</td></tr>
+    </tbody>
+  </table>
+  <div style="background:rgba(0,180,216,0.08);border-left:3px solid var(--accent);border-radius:0 10px 10px 0;padding:12px 18px;margin-top:12px;font-size:0.65em;color:var(--text-secondary);">
+    <i class="fa fa-lightbulb" style="color:var(--accent)"></i>&nbsp; <strong style="color:var(--accent);">DR을 쓰려면 Block-based LVM이 필수</strong>. GFS2는 Thin Provisioning 가능하지만 DR은 불가.
   </div>
   <aside class="notes">DR을 쓰려면 Block-based LVM이 필수입니다. 이것만 기억하세요. 고객의 요구사항에 따라 스토리지 유형을 결정하는 것이 설계의 핵심입니다.</aside>
 </section>
