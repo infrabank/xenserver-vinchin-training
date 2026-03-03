@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>XenServer & Vinchin 교육 핸드아웃 (H1~H6)</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--primary:#0033A1;--accent:#00B4D8;--dark:#1a1a2e;--text:#2d3748;--text-light:#718096;--border:#e2e8f0;--bg:#f7f8fc;--success:#16a34a;--danger:#dc2626;--warning:#d97706;--blue-bg:#eff6ff;--green-bg:#f0fdf4;--red-bg:#fef2f2;--yellow-bg:#fffbeb}
+body{font-family:'Pretendard',sans-serif;color:var(--text);background:#fff;line-height:1.5}
+
+/* Screen nav */
+.screen-nav{background:var(--dark);color:#fff;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.screen-nav a{color:var(--accent);text-decoration:none;font-size:0.85em;margin:0 8px;padding:4px 12px;border-radius:6px;transition:background 0.2s}
+.screen-nav a:hover{background:rgba(0,180,216,0.2)}
+.print-btn{background:var(--accent);color:#fff;border:none;padding:8px 20px;border-radius:8px;font-weight:600;cursor:pointer;font-size:0.85em}
+.print-btn:hover{background:#0096b7}
+
+/* Handout pages */
+.handout{max-width:210mm;margin:0 auto;padding:40px;background:#fff;page-break-after:always;min-height:auto}
+.handout:last-child{page-break-after:auto}
+.handout-header{display:flex;justify-content:space-between;align-items:flex-start;border-bottom:3px solid var(--primary);padding-bottom:12px;margin-bottom:20px}
+.handout-header h1{font-size:1.4em;color:var(--primary);letter-spacing:-0.02em}
+.handout-header .h-code{background:var(--primary);color:#fff;padding:4px 14px;border-radius:6px;font-weight:700;font-size:0.9em}
+.handout-meta{font-size:0.75em;color:var(--text-light);margin-bottom:16px}
+
+/* Tables */
+.h-table{width:100%;border-collapse:collapse;font-size:0.82em;margin-bottom:16px}
+.h-table thead th{background:var(--primary);color:#fff;padding:10px 12px;text-align:center;font-weight:600;font-size:0.85em}
+.h-table tbody td{padding:9px 12px;border:1px solid var(--border);vertical-align:top}
+.h-table tbody tr:nth-child(even){background:#f8fafc}
+.h-table .col-label{font-weight:600;color:var(--primary);background:var(--blue-bg);text-align:center;width:22%}
+.h-table .good{background:var(--green-bg);color:var(--success);font-weight:600}
+.h-table .bad{background:var(--red-bg);color:var(--danger);font-weight:600}
+.h-table .highlight{background:var(--blue-bg);font-weight:600;color:var(--primary)}
+
+/* Checklist */
+.checklist{list-style:none;padding:0;margin:0 0 12px 0}
+.checklist li{padding:7px 0 7px 8px;border-bottom:1px solid var(--border);font-size:0.82em;display:flex;align-items:flex-start;gap:8px}
+.checklist li::before{content:"☐";font-size:1.1em;color:var(--primary);flex-shrink:0;margin-top:1px}
+.check-group{margin-bottom:14px}
+.check-group h3{font-size:0.9em;color:var(--primary);margin-bottom:6px;padding:6px 10px;background:var(--blue-bg);border-radius:6px;display:flex;align-items:center;gap:8px}
+
+/* Key takeaway */
+.key-box{background:var(--blue-bg);border:2px solid var(--primary);border-radius:10px;padding:14px 18px;font-size:0.85em;text-align:center;margin-top:16px;font-weight:600;color:var(--primary)}
+.warn-box{background:var(--red-bg);border:2px solid var(--danger);border-radius:10px;padding:14px 18px;font-size:0.82em;text-align:center;margin-top:14px;color:var(--danger);font-weight:600}
+.approved-box{background:var(--green-bg);border:2px solid var(--success);border-radius:10px;padding:12px 18px;text-align:center;margin-top:14px}
+.approved-box .stamp{font-size:1em;font-weight:800;color:var(--success)}
+
+/* Policy cards */
+.policy-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+.policy-card{background:#f8fafc;border:1px solid var(--border);border-radius:8px;padding:10px 14px;font-size:0.78em}
+.policy-card strong{color:var(--primary);display:block;margin-bottom:3px}
+
+/* Tips */
+.tip{background:var(--yellow-bg);border-left:3px solid var(--warning);border-radius:0 8px 8px 0;padding:10px 14px;font-size:0.78em;color:var(--warning);margin-top:12px}
+
+/* Section subtitle */
+.section-sub{font-size:0.9em;font-weight:700;color:var(--text);margin:16px 0 8px;padding-bottom:4px;border-bottom:1px solid var(--border)}
+
+/* Footer */
+.handout-footer{margin-top:auto;padding-top:12px;border-top:1px solid var(--border);font-size:0.7em;color:var(--text-light);text-align:center}
+
+/* PRINT STYLES */
+@media print{
+  .screen-nav{display:none!important}
+  body{background:#fff;font-size:11pt}
+  .handout{padding:15mm;margin:0;max-width:none;box-shadow:none;page-break-after:always;page-break-inside:avoid}
+  .handout:last-child{page-break-after:auto}
+  .h-table{font-size:9pt;page-break-inside:avoid}
+  .h-table thead th{background:var(--primary)!important;color:#fff!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .h-table .col-label,.h-table .good,.h-table .bad,.h-table .highlight,
+  .key-box,.warn-box,.approved-box,.check-group h3,.policy-card,
+  .tip{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  @page{size:A4;margin:10mm}
+}
+</style>
+</head>
+<body>
+
+<!-- SCREEN NAV -->
+<div class="screen-nav">
+  <div>
+    <strong style="font-size:1.1em;">핸드아웃 H1~H6</strong>
+    <span style="font-size:0.8em;color:rgba(255,255,255,0.6);margin-left:12px;">XenServer & Vinchin 교육자료</span>
+  </div>
+  <div>
+    <a href="#h1">H1</a><a href="#h2">H2</a><a href="#h3">H3</a><a href="#h4">H4</a><a href="#h5">H5</a><a href="#h6">H6</a>
+    <button class="print-btn" onclick="window.print()"><i class="fa fa-print"></i> 인쇄 / PDF</button>
+  </div>
+</div>
+
+<!-- ==================== H1 ==================== -->
+<div class="handout" id="h1">
+  <div class="handout-header">
+    <div>
+      <h1>HA vs Live Migration 판단 기준</h1>
+      <div class="handout-meta">XenServer 환경의 안정적 운영을 위한 전략적 판단 기준 · 모듈 2 참고</div>
+    </div>
+    <span class="h-code">H1</span>
+  </div>
+
+  <p style="font-size:0.85em;margin-bottom:14px;">다음 조건 중 <strong style="color:var(--danger);">2개 이상</strong> 해당되면 HA(자동화)보다 Live Migration(수동 통제)이 더 안전합니다.</p>
+
+  <table class="h-table">
+    <thead><tr><th style="width:5%;">#</th><th style="width:30%;">운영 환경 조건</th><th>기술적 의미 및 위험 요소</th><th style="width:8%;">해당</th></tr></thead>
+    <tbody>
+      <tr><td style="text-align:center;font-weight:700;">1</td><td>호스트 2대 구성</td><td>HA 동작 시 리소스 부족, Split-brain 중재 어려움 (구조적 불안)</td><td style="text-align:center;">☐</td></tr>
+      <tr><td style="text-align:center;font-weight:700;">2</td><td>관리 네트워크 단일 구성</td><td>네트워크 일시 단절을 호스트 장애로 오탐지 → 정상 VM 재기동 위험</td><td style="text-align:center;">☐</td></tr>
+      <tr><td style="text-align:center;font-weight:700;">3</td><td>Shared Storage 불안정</td><td>Heartbeat Disk 접근 실패 → HA 오동작(Fencing) 및 VM 강제 종료</td><td style="text-align:center;">☐</td></tr>
+      <tr><td style="text-align:center;font-weight:700;">4</td><td>VM 수가 적은 환경</td><td>소규모 환경에서는 HA 자동화 이점 < 오동작 리스크</td><td style="text-align:center;">☐</td></tr>
+      <tr><td style="text-align:center;font-weight:700;">5</td><td>재기동에 민감한 서비스</td><td>HA는 장애 복구 시 필연적으로 VM 재부팅(서비스 중단) 동반</td><td style="text-align:center;">☐</td></tr>
+      <tr><td style="text-align:center;font-weight:700;">6</td><td>운영자 상시 대응 가능</td><td>기계적 자동화보다 엔지니어 판단에 의한 수동 조치가 더 안전</td><td style="text-align:center;">☐</td></tr>
+      <tr><td style="text-align:center;font-weight:700;">7</td><td>계획 점검 위주 환경</td><td>돌발 장애 대응보다 계획된 유지보수(무중단 이동)가 운영 핵심</td><td style="text-align:center;">☐</td></tr>
+    </tbody>
+  </table>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px;">
+    <div style="background:var(--red-bg);border-radius:8px;padding:12px;text-align:center;">
+      <strong style="color:var(--danger);">HA (High Availability)</strong><br>
+      <span style="font-size:0.8em;">자동 재기동 수행 · 오탐지 시 리스크 · 서비스 일시 중단</span>
+    </div>
+    <div style="background:var(--green-bg);border-radius:8px;padding:12px;text-align:center;">
+      <strong style="color:var(--success);">Live Migration</strong><br>
+      <span style="font-size:0.8em;">수동 통제 · 서비스 중단 없음 · 예측 가능한 운영</span>
+    </div>
+  </div>
+
+  <div class="key-box">"자동화보다 통제가 중요한 환경에서는 Live Migration이 더 안전합니다"</div>
+  <div class="handout-footer">XenServer & Vinchin Partner Technical Training · H1 · Decision Guide</div>
+</div>
+
+<!-- ==================== H2 ==================== -->
+<div class="handout" id="h2">
+  <div class="handout-header">
+    <div>
+      <h1>CBT vs SpeedKit 비교표</h1>
+      <div class="handout-meta">Vinchin Backup XenServer Incremental Backup 방식 비교 · 모듈 5 참고</div>
+    </div>
+    <span class="h-code">H2</span>
+  </div>
+
+  <table class="h-table">
+    <thead><tr><th style="width:22%;">비교 항목</th><th>Vinchin CBT (성능 최적화)</th><th class="highlight">SpeedKit (안정성, 권장 ✓)</th></tr></thead>
+    <tbody>
+      <tr><td class="col-label">변경 블록 추적</td><td>Vinchin 자체 드라이버 방식</td><td class="good">디스크 스캔 기반 비교</td></tr>
+      <tr><td class="col-label">Snapshot 의존성</td><td class="bad">매우 높음 (체인 무결성 필수)</td><td class="good">낮음 (상대적 독립)</td></tr>
+      <tr><td class="col-label">Incremental 정확성</td><td>높음 (블록 단위 정밀)</td><td>보통 (스캔 오차 미세)</td></tr>
+      <tr><td class="col-label">백업 데이터량</td><td>최소화 (변경 블록만)</td><td>CBT 대비 다소 증가</td></tr>
+      <tr><td class="col-label">체인 민감도</td><td class="bad">민감 (정리 실패 시 붕괴)</td><td class="good">둔감 (유연함)</td></tr>
+      <tr><td class="col-label">장애 시 영향</td><td class="bad">체인 전체 리셋(Full) 필요</td><td class="good">해당 시점만 실패, 다음 정상</td></tr>
+      <tr><td class="col-label">운영 난이도</td><td>상 (전문 트러블슈팅)</td><td class="good">하 (자동 복구 용이)</td></tr>
+      <tr><td class="col-label">권장 환경</td><td>대규모/고성능/안정 인프라</td><td class="good">일반 운영 환경 (기본값)</td></tr>
+    </tbody>
+  </table>
+
+  <div class="key-box">핵심: <strong>SpeedKit이 기본값(Default)</strong>. CBT는 예외 정책으로 제한적 허용</div>
+  <div class="tip"><i class="fa fa-info-circle"></i> Vinchin CBT는 VMware CBT와 다른 Vinchin 고유 기술 용어입니다.</div>
+  <div class="handout-footer">XenServer & Vinchin Partner Technical Training · H2 · Technical Reference</div>
+</div>
+
+<!-- ==================== H3 ==================== -->
+<div class="handout" id="h3">
+  <div class="handout-header">
+    <div>
+      <h1>백업 전략 표준안 (11개 항목)</h1>
+      <div class="handout-meta">Vinchin + XenServer 운영 안정성 중심 기준 · 모듈 6 참고</div>
+    </div>
+    <span class="h-code">H3</span>
+  </div>
+
+  <table class="h-table" style="font-size:0.78em;">
+    <thead><tr><th style="width:5%;">#</th><th style="width:18%;">구분</th><th style="width:35%;">권장 설정</th><th>비고 / 운영 이유</th></tr></thead>
+    <tbody>
+      <tr><td style="text-align:center;">1</td><td class="col-label">백업 방식</td><td>전체 VM 백업 (Image-level)</td><td>OS/App 일관성 확보</td></tr>
+      <tr><td style="text-align:center;">2</td><td class="col-label">Full/Inc 전략</td><td>Full + Incremental 조합</td><td>SpeedKit 기본값</td></tr>
+      <tr><td style="text-align:center;font-weight:700;color:var(--danger);">3</td><td class="col-label" style="color:var(--danger);">CBT 정책</td><td style="font-weight:700;color:var(--danger);">기본 비활성 (Default OFF)</td><td>조건 충족 시만 예외 허용</td></tr>
+      <tr><td style="text-align:center;">4</td><td class="col-label">Snapshot 정책</td><td>Serial Snapshot만 허용</td><td>Parallel 금지 (I/O 부하)</td></tr>
+      <tr><td style="text-align:center;">5</td><td class="col-label">백업 스케줄</td><td>Full 주1회/월2회, Inc 1일1회+</td><td>운영 시간대 피해서 설정</td></tr>
+      <tr><td style="text-align:center;">6</td><td class="col-label">전송 방식</td><td>LAN 전송 기본</td><td>SAN은 검증 환경만 허용</td></tr>
+      <tr><td style="text-align:center;">7</td><td class="col-label">전송 스레드</td><td>기본 3 threads</td><td>과도한 증설 금지 (Host 부하)</td></tr>
+      <tr><td style="text-align:center;">8</td><td class="col-label">보안 옵션</td><td>Encryption 필수</td><td>WORM은 컴플라이언스만</td></tr>
+      <tr><td style="text-align:center;">9</td><td class="col-label">Retention</td><td>단기 + 장기(GFS) 병행</td><td>Restore Point 기준 권장</td></tr>
+      <tr><td style="text-align:center;">10</td><td class="col-label">Pool Coordinator</td><td>백업 시간대 변경 금지</td><td>변경 후 VM Sync 필수</td></tr>
+      <tr><td style="text-align:center;">11</td><td class="col-label">장애 대응</td><td>Inc 반복 실패 시 Full 리셋</td><td>Snapshot 잔존 시 즉시 정리</td></tr>
+    </tbody>
+  </table>
+
+  <div class="policy-grid">
+    <div class="policy-card"><strong>1. SpeedKit 기본값</strong>성능보다 안정성이 검증된 방식 우선</div>
+    <div class="policy-card"><strong>2. CBT는 예외 정책</strong>Snapshot 체인 민감도로 제한적 허용</div>
+    <div class="policy-card"><strong>3. Snapshot 안정성</strong>스냅샷 무결성 = 백업 성공의 핵심 전제</div>
+    <div class="policy-card"><strong>4. 예측 가능성 우선</strong>자동화 편의성 < 관리자 통제 가능 구성</div>
+  </div>
+
+  <div class="approved-box"><span class="stamp">APPROVED STANDARD</span><br><span style="font-size:0.8em;color:var(--text-light);">백업 성공률과 복구 가능성을 최우선으로 하는 운영 기준</span></div>
+  <div class="handout-footer">XenServer & Vinchin Partner Technical Training · H3 · Operational Policy</div>
+</div>
+
+<!-- ==================== H4 ==================== -->
+<div class="handout" id="h4">
+  <div class="handout-header">
+    <div>
+      <h1>VM 복구 방식 선택 가이드</h1>
+      <div class="handout-meta">Vinchin Backup & Recovery 상황별 최적 복구 옵션 · 모듈 5 참고</div>
+    </div>
+    <span class="h-code">H4</span>
+  </div>
+
+  <table class="h-table">
+    <thead><tr><th style="width:18%;">구분</th><th>Full VM Restore</th><th class="highlight">Instant VM Restore</th><th>Granular VM Restore</th></tr></thead>
+    <tbody>
+      <tr><td class="col-label">설명</td><td>백업 → 프로덕션 전체 VM 복사 후 부팅</td><td class="highlight">백업에서 VM 바로 마운트 즉시 부팅</td><td>전체 VM 복구 없이 파일/폴더만 추출</td></tr>
+      <tr><td class="col-label">RTO</td><td class="bad">수십분~수시간</td><td class="good">수초~수분</td><td class="good">수초~수분</td></tr>
+      <tr><td class="col-label">프로덕션 스토리지</td><td>필수 (전체 카피)</td><td class="highlight">선택적</td><td class="good">불필요</td></tr>
+      <tr><td class="col-label">주요 용도</td><td>일반 장애 복구, DR 테스트, 새 환경 구성</td><td class="highlight" style="font-weight:700;">핵심 업무 긴급 복구, 빠른 RTO</td><td>파일/폴더 실수 삭제, 특정 데이터</td></tr>
+      <tr><td class="col-label">리소스 소비</td><td class="bad">높음</td><td>중간</td><td class="good">최소</td></tr>
+      <tr><td class="col-label">운영 영향</td><td>있음 (스토리지/네트워크 부하)</td><td>있음 (백업 저장소 대역폭 의존)</td><td class="good">없음 (읽기 전용)</td></tr>
+    </tbody>
+  </table>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:14px;">
+    <div style="background:var(--blue-bg);border-radius:8px;padding:12px;text-align:center;border:1px solid var(--primary);">
+      <strong style="color:var(--primary);">RTO 최우선</strong><br><span style="font-size:0.85em;">→ Instant Restore</span>
+    </div>
+    <div style="background:var(--green-bg);border-radius:8px;padding:12px;text-align:center;border:1px solid var(--success);">
+      <strong style="color:var(--success);">특정 파일만</strong><br><span style="font-size:0.85em;">→ Granular Restore</span>
+    </div>
+    <div style="background:var(--yellow-bg);border-radius:8px;padding:12px;text-align:center;border:1px solid var(--warning);">
+      <strong style="color:var(--warning);">완전 재구성</strong><br><span style="font-size:0.85em;">→ Full Restore</span>
+    </div>
+  </div>
+
+  <div class="tip"><i class="fa fa-shield-halved"></i> <strong>Instant Restore 주의:</strong> 마이그레이션 완료 전까지 백업 저장소 성능이 서비스 품질을 결정합니다.<br><i class="fa fa-virus-slash"></i> <strong>보안 팁:</strong> Granular Restore 시 Rescan/Integrity Check 활성화로 랜섬웨어 감염 검증하세요.</div>
+  <div class="handout-footer">XenServer & Vinchin Partner Technical Training · H4 · Recovery Guide</div>
+</div>
+
+<!-- ==================== H5 ==================== -->
+<div class="handout" id="h5">
+  <div class="handout-header">
+    <div>
+      <h1>HA 안전 구성 체크리스트</h1>
+      <div class="handout-meta">XenServer 8.x · 점검일자: ______________ · 점검자: ______________ · 모듈 2 참고</div>
+    </div>
+    <span class="h-code">H5</span>
+  </div>
+
+  <div class="check-group">
+    <h3><i class="fa fa-network-wired"></i> 1. 네트워크 구성 <span style="color:var(--danger);font-size:0.8em;">* 가장 중요</span></h3>
+    <ul class="checklist">
+      <li>Management Network NIC Bond 구성 (LACP/Active-Passive)</li>
+      <li>서로 다른 물리 스위치에 업링크 연결 (Switch Redundancy)</li>
+      <li>관리망(Management)과 VM 트래픽 분리 (VLAN/NIC)</li>
+      <li>스위치 STP / LACP 설정 검증 완료</li>
+      <li>관리망 패킷 드롭(Packet Drop) 발생 이력 없음</li>
+    </ul>
+  </div>
+
+  <div class="check-group">
+    <h3><i class="fa fa-hard-drive"></i> 2. 스토리지 / HA SR</h3>
+    <ul class="checklist">
+      <li>HA SR은 Shared Storage (iSCSI, FC, NFS)</li>
+      <li>모든 Host에서 동일 SR 접근 가능 확인</li>
+      <li>스토리지 다중 경로(Multipath) 구성 (단일 경로 금지)</li>
+      <li>MPIO 정상 동작 확인 (경로 단절 테스트 완료)</li>
+      <li>스토리지 컨트롤러 장애 시 Failover 테스트 완료</li>
+    </ul>
+  </div>
+
+  <div class="check-group">
+    <h3><i class="fa fa-gauge-high"></i> 3. 용량 설계 (N-1 기준)</h3>
+    <ul class="checklist">
+      <li>Host 1대 장애 시 남은 Host가 모든 Protected VM 수용 가능</li>
+      <li>Failover 시 CPU/Memory 리소스 여유분 확보 (Overcommit 주의)</li>
+      <li>부트 스톰(Boot Storm) 발생 시 스토리지 I/O 대역폭 여유 존재</li>
+    </ul>
+  </div>
+
+  <div class="check-group">
+    <h3><i class="fa fa-desktop"></i> 4. VM 정책 설정</h3>
+    <ul class="checklist">
+      <li>HA Protected VM 최소화 (핵심 서비스만 보호 설정)</li>
+      <li>Restart Priority 구분 적용 (High: 핵심, Medium: 일반, Low: 기타)</li>
+      <li>Anti-Affinity(분산 배치) 필요한 이중화 VM 설정 확인</li>
+    </ul>
+  </div>
+
+  <div class="check-group">
+    <h3><i class="fa fa-clipboard-check"></i> 5. 운영 정책</h3>
+    <ul class="checklist">
+      <li>HA 동작 중 수동 재기동/개입 금지 정책 전파</li>
+      <li>장애 발생 시 물리 Host 상태 및 HA 로그 선 확인 절차 준수</li>
+      <li>정기적인 로그 수집 및 상태 분석 절차 정립</li>
+    </ul>
+  </div>
+
+  <div class="warn-box"><i class="fa fa-exclamation-triangle"></i> 모든 항목이 YES여야 안전합니다. 하나라도 NO가 있다면, HA는 보호 장치가 아니라 <strong>시스템 전체 장애를 유발할 수 있는 위험 요소</strong>입니다.</div>
+  <div class="handout-footer">XenServer & Vinchin Partner Technical Training · H5 · Safety Checklist</div>
+</div>
+
+<!-- ==================== H6 ==================== -->
+<div class="handout" id="h6">
+  <div class="handout-header">
+    <div>
+      <h1>HA 사용 가능/금지 환경 판별표</h1>
+      <div class="handout-meta">XenServer 8.x Best Practices · 모듈 2 참고</div>
+    </div>
+    <span class="h-code">H6</span>
+  </div>
+
+  <p style="font-size:0.85em;margin-bottom:14px;">HA 기능을 활성화하기 전, 인프라 환경의 적합성을 반드시 점검하십시오.</p>
+
+  <table class="h-table">
+    <thead><tr><th style="width:22%;">비교 항목</th><th style="background:var(--success)!important;">HA 사용 가능 환경 ✓</th><th style="background:var(--danger)!important;">HA 사용 금지 환경 ✗</th></tr></thead>
+    <tbody>
+      <tr><td class="col-label">호스트 수</td><td class="good">3대 이상</td><td class="bad">2대 (Quorum 문제)</td></tr>
+      <tr><td class="col-label">관리 네트워크</td><td class="good">이중화 (Bonding + 이중 스위치)</td><td class="bad">단일 NIC / 단일 스위치</td></tr>
+      <tr><td class="col-label">HA SR / 스토리지</td><td class="good">Shared Storage + 다중 경로</td><td class="bad">단일 경로 / 불안정 NFS</td></tr>
+      <tr><td class="col-label">스토리지 MPIO</td><td class="good">구성 완료</td><td class="bad">미구성 (단일 장애점)</td></tr>
+      <tr><td class="col-label">여유 리소스</td><td class="good">N-1 기준 30% 이상 여유</td><td class="bad">평시 70~90% 사용</td></tr>
+      <tr><td class="col-label">Restart Priority</td><td class="good">VM별 중요도 명확히 구분</td><td class="bad">전부 High (리소스 경합)</td></tr>
+      <tr><td class="col-label">운영 성숙도</td><td class="good">HA 동작 원리/시나리오 이해</td><td class="bad">"켜면 알아서 됨" 기대</td></tr>
+      <tr><td class="col-label">업무 특성</td><td class="good">VM 재기동(Reboot) 허용</td><td class="bad">무중단 필수 (FT 등 필요)</td></tr>
+      <tr><td class="col-label">장애 대응 체계</td><td class="good">자동화 우선</td><td class="bad">수동 개입 잦음 / 프로세스 부재</td></tr>
+    </tbody>
+  </table>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px;">
+    <div style="background:var(--yellow-bg);border:1px solid var(--warning);border-radius:8px;padding:12px;text-align:center;">
+      <strong style="color:var(--warning);">✗ 1개라도 있으면</strong><br><span style="font-size:0.85em;">HA 비권장</span>
+    </div>
+    <div style="background:var(--red-bg);border:1px solid var(--danger);border-radius:8px;padding:12px;text-align:center;">
+      <strong style="color:var(--danger);">✗ 2개 이상이면</strong><br><span style="font-size:0.85em;">HA 사용 절대 금지</span>
+    </div>
+  </div>
+
+  <div class="key-box">"HA는 '설계가 끝난 뒤' 켜는 기능이지, 설계를 대신하지 않습니다."</div>
+  <div class="handout-footer">XenServer & Vinchin Partner Technical Training · H6 · Technical Guide</div>
+</div>
+
+</body>
+</html>

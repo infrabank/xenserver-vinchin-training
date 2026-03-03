@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>모듈 4: Vinchin 라이선싱 & 제품 개요</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/black.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet">
+<style>
+:root{--primary:#0033A1;--primary-light:#0052CC;--accent:#00B4D8;--mid-blue:#0077B6;--dark-bg:#0a0e1a;--card-bg:rgba(255,255,255,0.06);--card-border:rgba(255,255,255,0.1);--text-primary:#f0f4ff;--text-secondary:rgba(240,244,255,0.7);--success:#00c853;--warning:#ffab00;--danger:#ff1744}
+.reveal-viewport{background:var(--dark-bg)}.reveal{font-family:'Pretendard',sans-serif;color:var(--text-primary)}.reveal h1,.reveal h2,.reveal h3,.reveal h4{font-family:'Pretendard',sans-serif;font-weight:700;color:var(--text-primary);text-transform:none;letter-spacing:-0.02em}.reveal h2{font-size:1.6em;margin-bottom:0.6em}.reveal h3{font-size:1.1em;color:var(--accent);font-weight:600}.reveal p,.reveal li{font-size:0.75em;line-height:1.6;color:var(--text-secondary)}.reveal section{text-align:left}.reveal .slides>section{padding:20px 40px}.reveal .progress{height:3px;color:var(--accent)}.reveal .slide-number{font-family:'Pretendard';font-size:14px;color:var(--text-secondary);background:transparent}
+.glass-card{background:var(--card-bg);backdrop-filter:blur(20px);border:1px solid var(--card-border);border-radius:16px;padding:28px;transition:all 0.3s}.glass-card:hover{border-color:rgba(0,180,216,0.3);box-shadow:0 8px 32px rgba(0,180,216,0.1)}
+.tag{display:inline-block;padding:4px 14px;border-radius:20px;font-size:0.65em;font-weight:600}.tag-blue{background:rgba(0,82,204,0.3);color:var(--accent);border:1px solid rgba(0,180,216,0.3)}.tag-green{background:rgba(0,200,83,0.15);color:var(--success);border:1px solid rgba(0,200,83,0.3)}.tag-red{background:rgba(255,23,68,0.15);color:var(--danger);border:1px solid rgba(255,23,68,0.3)}.tag-yellow{background:rgba(255,171,0,0.15);color:var(--warning);border:1px solid rgba(255,171,0,0.3)}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:24px}.grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px}.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.num-circle{width:48px;height:48px;background:linear-gradient(135deg,var(--primary),var(--mid-blue));border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.1em;font-weight:800;color:#fff;flex-shrink:0;box-shadow:0 4px 16px rgba(0,51,161,0.4)}
+.num-lg{font-size:2.5em;font-weight:900;background:linear-gradient(135deg,var(--accent),var(--primary-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1}
+.styled-table{width:100%;border-collapse:separate;border-spacing:0;font-size:0.7em;border-radius:12px;overflow:hidden;border:1px solid var(--card-border)}.styled-table thead th{background:rgba(0,51,161,0.4);padding:14px 16px;font-weight:700;color:var(--text-primary);text-align:center;border-bottom:2px solid var(--accent)}.styled-table tbody td{padding:12px 16px;border-bottom:1px solid rgba(255,255,255,0.05);color:var(--text-secondary);text-align:center}.styled-table tbody tr:nth-child(even){background:rgba(255,255,255,0.02)}.styled-table tbody tr:hover{background:rgba(0,180,216,0.08)}.styled-table .highlight-col{background:rgba(0,180,216,0.08)!important;color:var(--accent)!important;font-weight:600}
+.section-line{width:60px;height:3px;background:linear-gradient(90deg,var(--accent),transparent);margin:8px 0 16px 0;border-radius:2px}.subtitle{color:var(--accent);font-size:0.7em;font-weight:500;margin-bottom:4px;letter-spacing:0.1em;text-align:center}
+.quote-box{background:rgba(0,180,216,0.08);border-left:3px solid var(--accent);border-radius:0 12px 12px 0;padding:16px 20px;font-style:italic;font-size:0.7em;color:var(--text-secondary)}
+.warn-box{background:rgba(255,171,0,0.08);border:1px solid rgba(255,171,0,0.3);border-radius:12px;padding:14px 20px;font-size:0.65em;color:var(--warning)}
+.danger-box{background:rgba(255,23,68,0.08);border:1px solid rgba(255,23,68,0.3);border-radius:12px;padding:14px 20px;font-size:0.65em;color:var(--danger)}
+.vs-badge{width:60px;height:60px;background:linear-gradient(135deg,var(--warning),#ff6d00);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:1.1em;color:#fff;box-shadow:0 4px 24px rgba(255,171,0,0.4);position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:10}
+.feat-card{background:var(--card-bg);border:1px solid var(--card-border);border-radius:12px;padding:18px;text-align:center;transition:all 0.3s}.feat-card:hover{border-color:rgba(0,180,216,0.4);transform:translateY(-4px)}.feat-card .fa{font-size:1.8em;color:var(--accent);margin-bottom:10px}.feat-card h4{font-size:0.75em;margin:8px 0 6px;color:var(--text-primary)}.feat-card p{font-size:0.55em;color:var(--text-secondary);margin:0}
+</style>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+
+<!-- TITLE -->
+<section data-background-gradient="radial-gradient(ellipse at 20% 80%, rgba(0,51,161,0.4) 0%, transparent 60%), radial-gradient(ellipse at 80% 20%, rgba(0,180,216,0.2) 0%, transparent 50%), #0a0e1a">
+  <div style="text-align:center;padding-top:30px;">
+    <p class="subtitle" style="font-size:0.7em;">Module 4 · 40분</p>
+    <h1 style="font-size:2.4em;margin:0;line-height:1.15;">Vinchin<br><span style="background:linear-gradient(90deg,var(--accent),#66e0ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">라이선싱 & 제품 개요</span></h1>
+    <div class="section-line" style="margin:16px auto;"></div>
+    <p style="font-size:0.8em;color:var(--text-secondary);">Perpetual vs Subscription · Per Socket · VLK · 아키텍처</p>
+    <div style="display:flex;justify-content:center;gap:16px;margin-top:32px;flex-wrap:wrap;">
+      <span class="tag tag-blue"><i class="fa fa-key"></i>&nbsp; License Models</span>
+      <span class="tag tag-blue"><i class="fa fa-calculator"></i>&nbsp; 산정 방식</span>
+      <span class="tag tag-blue"><i class="fa fa-file-contract"></i>&nbsp; VLK & Support</span>
+      <span class="tag tag-blue"><i class="fa fa-server"></i>&nbsp; Architecture</span>
+    </div>
+  </div>
+  <aside class="notes">점심 후 첫 세션입니다. Vinchin 라이선싱의 핵심 구조를 다룹니다. 영업과 기술 공통 세션입니다.</aside>
+</section>
+
+<!-- 4-1: PERPETUAL vs SUBSCRIPTION -->
+<section data-background-gradient="radial-gradient(ellipse at 50% 0%, rgba(0,82,204,0.2) 0%, transparent 60%), #0a0e1a">
+  <p class="subtitle">Section 4-1 · 10분</p>
+  <h2 style="text-align:center;"><i class="fa fa-scale-balanced" style="color:var(--accent)"></i> Perpetual vs Subscription</h2>
+  <div style="max-width:920px;margin:0 auto;">
+    <table class="styled-table">
+      <thead><tr><th style="width:22%;">항목</th><th style="width:39%;">Perpetual (영구)</th><th style="width:39%;">Subscription (구독)</th></tr></thead>
+      <tbody>
+        <tr class="fragment"><td style="font-weight:600;text-align:left;">소유권</td><td>한 번 구매 → 영구 사용</td><td>계약 기간(1~3년)만 유효</td></tr>
+        <tr class="fragment"><td style="font-weight:600;text-align:left;">유지보수</td><td>최초 1년 무상, 이후 MSRP 25%/년</td><td>구독 기간 내 전체 포함</td></tr>
+        <tr class="fragment"><td style="font-weight:600;text-align:left;"><i class="fa fa-exclamation-triangle" style="color:var(--warning)"></i> 만료 시</td><td style="color:var(--success);">S/W 사용 가능 (업데이트만 중단)</td><td style="color:var(--danger);font-weight:700;">S/W 동작 전면 중단!</td></tr>
+        <tr class="fragment"><td style="font-weight:600;text-align:left;">산정 단위</td><td>Per Socket (물리 CPU)</td><td>Per VM (가상머신 수)</td></tr>
+        <tr class="fragment"><td style="font-weight:600;text-align:left;">권장 환경</td><td>대규모, 장기 운영 (CAPEX)</td><td>초기 비용 절감, 소규모 (OPEX)</td></tr>
+      </tbody>
+    </table>
+    <div class="danger-box fragment" style="margin-top:16px;text-align:center;">
+      <i class="fa fa-skull-crossbones"></i>&nbsp; <strong>Subscription 만료 시 백업도 복구도 불가!</strong> 장기 운영 환경이라면 Perpetual을 강력히 권장합니다.
+    </div>
+  </div>
+  <aside class="notes">Subscription이 만료되면 소프트웨어가 완전히 멈춥니다. 백업도 복구도 안 됩니다. 이건 Perpetual과의 결정적 차이입니다.</aside>
+</section>
+
+<!-- SELECTION MATRIX -->
+<section data-background-gradient="radial-gradient(ellipse at 70% 30%, rgba(0,119,182,0.2) 0%, transparent 55%), #0a0e1a">
+  <h2 style="text-align:center;font-size:1.4em;"><i class="fa fa-compass" style="color:var(--accent)"></i> 선택 기준 매트릭스</h2>
+  <div style="max-width:860px;margin:0 auto;">
+    <table class="styled-table" style="margin-bottom:20px;">
+      <thead><tr><th style="width:22%;">구분</th><th>Per Socket / Perpetual</th><th>Per VM / Subscription</th></tr></thead>
+      <tbody>
+        <tr class="fragment"><td style="font-weight:600;text-align:left;">환경 규모</td><td>대규모 / 고밀도</td><td>소규모 / 분산</td></tr>
+        <tr class="fragment"><td style="font-weight:600;text-align:left;">인프라 변동성</td><td>호스트 증설 잦지 않음</td><td>프로젝트성, 임시 환경</td></tr>
+        <tr class="fragment"><td style="font-weight:600;text-align:left;">예산 구조</td><td>CAPEX (초기 투자)</td><td>OPEX (운영 비용)</td></tr>
+        <tr class="fragment"><td style="font-weight:600;text-align:left;">추천 시나리오</td><td style="color:var(--accent);">IDC, 사내 메인 인프라</td><td style="color:var(--accent);">PoC, 지점, 단기 프로젝트</td></tr>
+      </tbody>
+    </table>
+    <div class="grid-2 fragment" style="gap:20px;">
+      <div class="glass-card" style="padding:20px;text-align:center;border-top:3px solid var(--accent);">
+        <div style="font-size:0.8em;font-weight:700;margin-bottom:6px;">Per Socket 핵심</div>
+        <div style="font-size:0.63em;color:var(--text-secondary);">물리 CPU 소켓 수 합계 기준<br><strong style="color:var(--success);">VM 무제한</strong> · MOQ: 2 Sockets</div>
+      </div>
+      <div class="glass-card" style="padding:20px;text-align:center;border-top:3px solid var(--warning);">
+        <div style="font-size:0.8em;font-weight:700;margin-bottom:6px;">Per VM 핵심</div>
+        <div style="font-size:0.63em;color:var(--text-secondary);">보호 대상 VM 수량만 계산<br>호스트/소켓 무관 · MOQ: 10 VMs</div>
+      </div>
+    </div>
+  </div>
+  <aside class="notes">대부분의 환경에서는 Per Socket이 TCO에서 유리합니다. VM 밀도가 높을수록 차이가 커집니다.</aside>
+</section>
+
+<!-- 4-2: CALCULATION & VLK -->
+<section data-background-gradient="radial-gradient(ellipse at 30% 70%, rgba(0,51,161,0.25) 0%, transparent 55%), #0a0e1a">
+  <p class="subtitle">Section 4-2 · 10분</p>
+  <h2 style="text-align:center;"><i class="fa fa-calculator" style="color:var(--accent)"></i> 실제 계산 사례 & VLK 관리</h2>
+  <div style="max-width:900px;margin:0 auto;">
+    <div class="glass-card fragment" style="padding:20px;margin-bottom:16px;">
+      <h3 style="font-size:0.85em;margin-bottom:10px;">환경: XenServer Pool 3대 호스트</h3>
+      <div class="grid-3" style="gap:12px;margin-bottom:14px;">
+        <div style="background:rgba(0,82,204,0.15);border-radius:10px;padding:12px;text-align:center;">
+          <div style="font-size:0.75em;font-weight:700;"><i class="fa fa-server" style="color:var(--accent)"></i> Host A</div>
+          <div style="font-size:0.65em;">2 Sockets / 20 VMs</div>
+        </div>
+        <div style="background:rgba(0,82,204,0.15);border-radius:10px;padding:12px;text-align:center;">
+          <div style="font-size:0.75em;font-weight:700;"><i class="fa fa-server" style="color:var(--accent)"></i> Host B</div>
+          <div style="font-size:0.65em;">2 Sockets / 25 VMs</div>
+        </div>
+        <div style="background:rgba(0,82,204,0.15);border-radius:10px;padding:12px;text-align:center;">
+          <div style="font-size:0.75em;font-weight:700;"><i class="fa fa-server" style="color:var(--accent)"></i> Host C</div>
+          <div style="font-size:0.65em;">1 Socket / 10 VMs</div>
+        </div>
+      </div>
+      <div class="grid-2" style="gap:16px;">
+        <div style="background:rgba(0,200,83,0.1);border-radius:10px;padding:14px;text-align:center;border:1px solid rgba(0,200,83,0.3);">
+          <div style="font-size:0.7em;font-weight:600;">Per Socket</div>
+          <div style="font-size:0.6em;color:var(--text-secondary);">2 + 2 + 1 =</div>
+          <div style="font-size:2em;font-weight:900;color:var(--success);">5</div>
+          <span class="tag tag-green" style="font-size:0.6em;">Sockets · TCO 유리</span>
+        </div>
+        <div style="background:rgba(255,171,0,0.08);border-radius:10px;padding:14px;text-align:center;border:1px solid rgba(255,171,0,0.3);">
+          <div style="font-size:0.7em;font-weight:600;">Per VM</div>
+          <div style="font-size:0.6em;color:var(--text-secondary);">20 + 25 + 10 =</div>
+          <div style="font-size:2em;font-weight:900;color:var(--warning);">55</div>
+          <span class="tag tag-yellow" style="font-size:0.6em;">VMs · 비용 높음</span>
+        </div>
+      </div>
+    </div>
+    <div class="grid-2 fragment" style="gap:14px;">
+      <div class="glass-card" style="padding:16px;">
+        <h4 style="font-size:0.8em;color:var(--accent);"><i class="fa fa-key"></i> VLK 핵심 원칙</h4>
+        <ul style="font-size:0.63em;list-style:none;padding:0;">
+          <li><i class="fa fa-check" style="color:var(--success)"></i> 1 VLK = 1 Vinchin Server (분할 불가)</li>
+          <li><i class="fa fa-check" style="color:var(--success)"></i> 모든 모듈이 하나의 VLK로 통합</li>
+          <li><i class="fa fa-triangle-exclamation" style="color:var(--warning)"></i> 환경 분리 시 별도 VLK 필수</li>
+        </ul>
+      </div>
+      <div class="glass-card" style="padding:16px;">
+        <h4 style="font-size:0.8em;color:var(--accent);"><i class="fa fa-building"></i> DR 라이선스</h4>
+        <ul style="font-size:0.63em;list-style:none;padding:0;">
+          <li><i class="fa fa-dollar-sign" style="color:var(--warning)"></i> 백업 대상 호스트: 유료 라이선스</li>
+          <li><i class="fa fa-gift" style="color:var(--success)"></i> 복구 전용 DR: <strong>무료 라이선스</strong></li>
+          <li><i class="fa fa-info-circle" style="color:var(--accent)"></i> XS 라이선스와 <strong>별개 계약</strong></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <aside class="notes">Vinchin 라이선스에서 가장 자주 실수하는 부분이 XenMotion입니다. VM이 라이선스 없는 호스트로 이동하면 백업이 실패합니다.</aside>
+</section>
+
+<!-- 4-3: SUPPORT & POC -->
+<section data-background-gradient="radial-gradient(ellipse at 60% 40%, rgba(0,119,182,0.2) 0%, transparent 55%), #0a0e1a">
+  <p class="subtitle">Section 4-3 · 10분</p>
+  <h2 style="text-align:center;"><i class="fa fa-file-contract" style="color:var(--accent)"></i> 유지보수 & PoC 관리</h2>
+  <div style="max-width:900px;margin:0 auto;">
+    <table class="styled-table fragment" style="margin-bottom:16px;font-size:0.65em;">
+      <thead><tr><th style="width:25%;">항목</th><th>Perpetual Support</th><th>Subscription Support</th></tr></thead>
+      <tbody>
+        <tr><td style="font-weight:600;text-align:left;">최초 구매</td><td>1년 무상 포함</td><td>기간 내 전체 포함</td></tr>
+        <tr><td style="font-weight:600;text-align:left;">갱신</td><td>MSRP 25% 연간</td><td>만료 전 갱신 필수</td></tr>
+        <tr><td style="font-weight:600;text-align:left;">미갱신</td><td style="color:var(--success);">사용 가능, 지원만 불가</td><td style="color:var(--danger);font-weight:700;">동작 전면 중단</td></tr>
+      </tbody>
+    </table>
+    <div class="grid-2" style="gap:16px;">
+      <div class="glass-card fragment" style="padding:18px;">
+        <h3 style="font-size:0.85em;"><i class="fa fa-flask"></i> Trial 정책</h3>
+        <div style="font-size:0.63em;display:flex;flex-direction:column;gap:6px;">
+          <div><i class="fa fa-check" style="color:var(--success)"></i> 기본 <strong>60일</strong> 제공, 전 기능 활성화</div>
+          <div><i class="fa fa-check" style="color:var(--success)"></i> 기간 연장 가능 (1~3개월)</div>
+          <div><i class="fa fa-ban" style="color:var(--danger)"></i> 운영 VLK와 PoC VLK <strong>혼용 절대 금지</strong></div>
+          <div><i class="fa fa-arrow-right" style="color:var(--accent)"></i> 종료 후: Trial 삭제 → 정식 VLK 적용</div>
+        </div>
+      </div>
+      <div class="glass-card fragment" style="padding:18px;">
+        <h3 style="font-size:0.85em;"><i class="fa fa-layer-group"></i> 다중 환경 라이선스</h3>
+        <div style="font-size:0.63em;display:flex;flex-direction:column;gap:8px;">
+          <div style="display:flex;align-items:center;gap:8px;">
+            <span class="tag tag-green" style="font-size:0.85em;min-width:80px;">Production</span>
+            <span>정식 VLK (유료)</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;">
+            <span class="tag tag-blue" style="font-size:0.85em;min-width:80px;">DR Site</span>
+            <span>무료 DR License (복구 전용)</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;">
+            <span class="tag tag-yellow" style="font-size:0.85em;min-width:80px;">Test/Dev</span>
+            <span>Trial Key 또는 분할 VLK</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <aside class="notes">PoC를 운영 환경에서 진행하는 것은 매우 위험합니다. 반드시 별도 풀에서 PoC를 진행하세요.</aside>
+</section>
+
+<!-- 4-4: ARCHITECTURE -->
+<section data-background-gradient="radial-gradient(ellipse at 40% 60%, rgba(0,51,161,0.25) 0%, transparent 55%), #0a0e1a">
+  <p class="subtitle">Section 4-4 · 10분</p>
+  <h2 style="text-align:center;"><i class="fa fa-sitemap" style="color:var(--accent)"></i> Vinchin 제품 아키텍처</h2>
+  <div style="max-width:920px;margin:0 auto;">
+    <div class="grid-4 fragment" style="gap:14px;margin-bottom:20px;">
+      <div class="feat-card" style="padding:16px;">
+        <i class="fa fa-crown"></i>
+        <h4>Master Server</h4>
+        <p>중앙집중식 관리<br>ALL-IN-ONE</p>
+      </div>
+      <div class="feat-card" style="padding:16px;">
+        <i class="fa fa-cube"></i>
+        <h4>Slave Node</h4>
+        <p>연산 확장 노드<br>ROBO 환경용</p>
+      </div>
+      <div class="feat-card" style="padding:16px;">
+        <i class="fa fa-plug"></i>
+        <h4>Agent/Proxy</h4>
+        <p>통신/데이터 전송<br>VMware/OpenStack</p>
+      </div>
+      <div class="feat-card" style="padding:16px;">
+        <i class="fa fa-globe"></i>
+        <h4>Web Portal</h4>
+        <p>RBAC, 알림<br>시각화 관리</p>
+      </div>
+    </div>
+    <div class="grid-2 fragment" style="gap:16px;margin-bottom:16px;">
+      <div class="glass-card" style="padding:16px;">
+        <h3 style="font-size:0.85em;margin-bottom:8px;"><i class="fa fa-puzzle-piece"></i> 지원 플랫폼</h3>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;font-size:0.6em;">
+          <span class="tag tag-blue" style="font-size:0.9em;">VMware</span>
+          <span class="tag tag-blue" style="font-size:0.9em;">XenServer</span>
+          <span class="tag tag-blue" style="font-size:0.9em;">Hyper-V</span>
+          <span class="tag tag-blue" style="font-size:0.9em;">KVM</span>
+          <span class="tag tag-blue" style="font-size:0.9em;">Proxmox</span>
+          <span class="tag tag-blue" style="font-size:0.9em;">AWS EC2</span>
+          <span class="tag tag-blue" style="font-size:0.9em;">Oracle DB</span>
+          <span class="tag tag-blue" style="font-size:0.9em;">SQL Server</span>
+          <span class="tag tag-blue" style="font-size:0.9em;">M365</span>
+          <span class="tag tag-blue" style="font-size:0.9em;">K8s</span>
+        </div>
+      </div>
+      <div class="glass-card" style="padding:16px;">
+        <h3 style="font-size:0.85em;margin-bottom:8px;"><i class="fa fa-shield-halved"></i> 보안 기능</h3>
+        <div style="font-size:0.63em;display:flex;flex-direction:column;gap:4px;">
+          <div><i class="fa fa-lock" style="color:var(--success)"></i> RSA 전송 + AES-256 데이터 암호화</div>
+          <div><i class="fa fa-shield-virus" style="color:var(--success)"></i> 커널 수준 랜섬웨어 보호</div>
+          <div><i class="fa fa-user-shield" style="color:var(--success)"></i> RBAC 접근 제어</div>
+          <div><i class="fa fa-list-check" style="color:var(--success)"></i> 블랙/화이트리스트</div>
+        </div>
+      </div>
+    </div>
+    <div class="quote-box fragment" style="text-align:center;">
+      <i class="fa fa-lightbulb" style="color:var(--accent)"></i>&nbsp; <strong>Agentless 백업</strong>이 핵심 — VM에 아무것도 설치하지 않고 하이퍼바이저 API로 백업. Master-Slave 구조로 소규모~대규모 유연 확장.
+    </div>
+  </div>
+  <aside class="notes">Vinchin의 가장 큰 장점은 Agentless입니다. XenServer와의 통합이 매우 자연스러운 이유입니다.</aside>
+</section>
+
+<!-- Q&A -->
+<section data-background-gradient="radial-gradient(ellipse at 50% 50%, rgba(0,51,161,0.4) 0%, transparent 55%), #0a0e1a">
+  <div style="text-align:center;padding-top:30px;">
+    <div style="width:120px;height:120px;background:linear-gradient(135deg,var(--primary),var(--accent));border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:3.5em;font-weight:900;color:#fff;margin:0 auto 24px;box-shadow:0 12px 48px rgba(0,180,216,0.3);">?</div>
+    <h1 style="font-size:2em;">모듈 4 Q&A</h1>
+    <div style="max-width:700px;margin:24px auto 0;text-align:left;">
+      <div class="glass-card" style="padding:16px;margin-bottom:10px;">
+        <p style="font-size:0.68em;margin:0;"><strong style="color:var(--accent);">Q. Per Socket과 Per VM 중 어떤 것이 저렴한가요?</strong><br><span style="color:var(--text-secondary);">A. VM 밀도가 높으면 Per Socket, VM이 적으면 Per VM이 유리합니다.</span></p>
+      </div>
+      <div class="glass-card" style="padding:16px;margin-bottom:10px;">
+        <p style="font-size:0.68em;margin:0;"><strong style="color:var(--accent);">Q. DR 사이트에서도 백업을 하려면?</strong><br><span style="color:var(--text-secondary);">A. 백업 수행 시 정식 유료 라이선스 필요. 무료 DR은 복구 전용입니다.</span></p>
+      </div>
+      <div class="glass-card" style="padding:16px;">
+        <p style="font-size:0.68em;margin:0;"><strong style="color:var(--accent);">Q. 유지보수를 안 갱신하면 백업은 계속 되나요?</strong><br><span style="color:var(--text-secondary);">A. Perpetual은 계속 동작(업데이트 불가), Subscription은 동작 중단!</span></p>
+      </div>
+    </div>
+  </div>
+  <aside class="notes">모듈 4 Q&A 시간입니다.</aside>
+</section>
+
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
+<script>Reveal.initialize({hash:true,slideNumber:'c/t',showSlideNumber:'all',transition:'slide',backgroundTransition:'fade',width:1280,height:720,margin:0.04,center:true,plugins:[RevealNotes]});</script>
+</body>
+</html>

@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>모듈 5: Vinchin 백업 기술 & 보안</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/black.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet">
+<style>
+:root{--primary:#0033A1;--primary-light:#0052CC;--accent:#00B4D8;--mid-blue:#0077B6;--dark-bg:#0a0e1a;--card-bg:rgba(255,255,255,0.06);--card-border:rgba(255,255,255,0.1);--text-primary:#f0f4ff;--text-secondary:rgba(240,244,255,0.7);--success:#00c853;--warning:#ffab00;--danger:#ff1744}
+.reveal-viewport{background:var(--dark-bg)}.reveal{font-family:'Pretendard',sans-serif;color:var(--text-primary)}.reveal h1,.reveal h2,.reveal h3,.reveal h4{font-family:'Pretendard',sans-serif;font-weight:700;color:var(--text-primary);text-transform:none;letter-spacing:-0.02em}.reveal h2{font-size:1.6em;margin-bottom:0.6em}.reveal h3{font-size:1.1em;color:var(--accent);font-weight:600}.reveal p,.reveal li{font-size:0.75em;line-height:1.6;color:var(--text-secondary)}.reveal section{text-align:left}.reveal .slides>section{padding:20px 40px}.reveal .progress{height:3px;color:var(--accent)}.reveal .slide-number{font-family:'Pretendard';font-size:14px;color:var(--text-secondary);background:transparent}
+.glass-card{background:var(--card-bg);backdrop-filter:blur(20px);border:1px solid var(--card-border);border-radius:16px;padding:28px;transition:all 0.3s}.glass-card:hover{border-color:rgba(0,180,216,0.3);box-shadow:0 8px 32px rgba(0,180,216,0.1)}
+.tag{display:inline-block;padding:4px 14px;border-radius:20px;font-size:0.65em;font-weight:600}.tag-blue{background:rgba(0,82,204,0.3);color:var(--accent);border:1px solid rgba(0,180,216,0.3)}.tag-green{background:rgba(0,200,83,0.15);color:var(--success);border:1px solid rgba(0,200,83,0.3)}.tag-red{background:rgba(255,23,68,0.15);color:var(--danger);border:1px solid rgba(255,23,68,0.3)}.tag-yellow{background:rgba(255,171,0,0.15);color:var(--warning);border:1px solid rgba(255,171,0,0.3)}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:24px}.grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px}.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.grid-5{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+.num-circle{width:48px;height:48px;background:linear-gradient(135deg,var(--primary),var(--mid-blue));border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.1em;font-weight:800;color:#fff;flex-shrink:0;box-shadow:0 4px 16px rgba(0,51,161,0.4)}
+.styled-table{width:100%;border-collapse:separate;border-spacing:0;font-size:0.7em;border-radius:12px;overflow:hidden;border:1px solid var(--card-border)}.styled-table thead th{background:rgba(0,51,161,0.4);padding:14px 16px;font-weight:700;color:var(--text-primary);text-align:center;border-bottom:2px solid var(--accent)}.styled-table tbody td{padding:12px 16px;border-bottom:1px solid rgba(255,255,255,0.05);color:var(--text-secondary);text-align:center}.styled-table tbody tr:nth-child(even){background:rgba(255,255,255,0.02)}.styled-table tbody tr:hover{background:rgba(0,180,216,0.08)}.styled-table .highlight-col{background:rgba(0,180,216,0.08)!important;color:var(--accent)!important;font-weight:600}
+.section-line{width:60px;height:3px;background:linear-gradient(90deg,var(--accent),transparent);margin:8px 0 16px 0;border-radius:2px}.subtitle{color:var(--accent);font-size:0.7em;font-weight:500;margin-bottom:4px;letter-spacing:0.1em;text-align:center}
+.quote-box{background:rgba(0,180,216,0.08);border-left:3px solid var(--accent);border-radius:0 12px 12px 0;padding:16px 20px;font-style:italic;font-size:0.7em;color:var(--text-secondary)}
+.warn-box{background:rgba(255,171,0,0.08);border:1px solid rgba(255,171,0,0.3);border-radius:12px;padding:14px 20px;font-size:0.65em;color:var(--warning)}
+.danger-box{background:rgba(255,23,68,0.08);border:1px solid rgba(255,23,68,0.3);border-radius:12px;padding:14px 20px;font-size:0.65em;color:var(--danger)}
+.feat-card{background:var(--card-bg);border:1px solid var(--card-border);border-radius:12px;padding:18px;text-align:center;transition:all 0.3s}.feat-card:hover{border-color:rgba(0,180,216,0.4);transform:translateY(-4px)}.feat-card .fa{font-size:1.8em;color:var(--accent);margin-bottom:10px}.feat-card h4{font-size:0.75em;margin:8px 0 6px;color:var(--text-primary)}.feat-card p{font-size:0.55em;color:var(--text-secondary);margin:0}
+.stage-card{border-radius:12px;padding:20px 24px;border-left:4px solid;background:var(--card-bg)}.stage-green{border-left-color:var(--success)}.stage-yellow{border-left-color:var(--warning)}.stage-red{border-left-color:var(--danger)}
+</style>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+
+<!-- TITLE -->
+<section data-background-gradient="radial-gradient(ellipse at 20% 80%, rgba(0,51,161,0.4) 0%, transparent 60%), radial-gradient(ellipse at 80% 20%, rgba(0,180,216,0.2) 0%, transparent 50%), #0a0e1a">
+  <div style="text-align:center;padding-top:30px;">
+    <p class="subtitle" style="font-size:0.7em;">Module 5 · 50분</p>
+    <h1 style="font-size:2.4em;margin:0;line-height:1.15;">Vinchin<br><span style="background:linear-gradient(90deg,var(--accent),#66e0ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">백업 기술 & 보안</span></h1>
+    <div class="section-line" style="margin:16px auto;"></div>
+    <p style="font-size:0.8em;color:var(--text-secondary);">Agentless · Instant Recovery · CDP · DR · Immutable Storage</p>
+    <div style="display:flex;justify-content:center;gap:14px;margin-top:32px;flex-wrap:wrap;">
+      <span class="tag tag-blue"><i class="fa fa-cloud-arrow-up"></i>&nbsp; VM 백업</span>
+      <span class="tag tag-blue"><i class="fa fa-database"></i>&nbsp; 서버/DB/CDP</span>
+      <span class="tag tag-blue"><i class="fa fa-rotate"></i>&nbsp; DR & 복구</span>
+      <span class="tag tag-blue"><i class="fa fa-shield-virus"></i>&nbsp; 보안</span>
+      <span class="tag tag-blue"><i class="fa fa-scale-balanced"></i>&nbsp; CBT vs SpeedKit</span>
+    </div>
+  </div>
+  <aside class="notes">모듈 5는 50분 세션으로, Vinchin의 핵심 기술을 다룹니다. 가장 기술적인 모듈입니다.</aside>
+</section>
+
+<!-- 5-1: AGENTLESS VM BACKUP -->
+<section data-background-gradient="radial-gradient(ellipse at 50% 0%, rgba(0,82,204,0.2) 0%, transparent 60%), #0a0e1a">
+  <p class="subtitle">Section 5-1 · 10분</p>
+  <h2 style="text-align:center;"><i class="fa fa-cloud-arrow-up" style="color:var(--accent)"></i> VM 백업 · Instant Recovery · Cross-Platform</h2>
+  <div style="max-width:920px;margin:0 auto;">
+    <div class="grid-3" style="gap:16px;margin-bottom:16px;">
+      <div class="glass-card fragment" style="padding:20px;border-top:3px solid var(--accent);">
+        <h3 style="font-size:0.85em;"><i class="fa fa-magic-wand-sparkles"></i> Agentless</h3>
+        <ul style="font-size:0.6em;list-style:none;padding:0;">
+          <li><i class="fa fa-check" style="color:var(--success)"></i> VM에 에이전트 설치 불필요</li>
+          <li><i class="fa fa-check" style="color:var(--success)"></i> Full / Forever Incremental / 차등</li>
+          <li><i class="fa fa-check" style="color:var(--success)"></i> LAN / LAN-Free 백업</li>
+          <li><i class="fa fa-check" style="color:var(--success)"></i> CBT/SpeedKit 증분 탐지</li>
+          <li><i class="fa fa-check" style="color:var(--success)"></i> 중복 제거, 압축, BitDetector</li>
+        </ul>
+      </div>
+      <div class="glass-card fragment" style="padding:20px;border-top:3px solid var(--success);">
+        <h3 style="font-size:0.85em;color:var(--success);"><i class="fa fa-bolt"></i> Instant Recovery</h3>
+        <div style="text-align:center;margin:10px 0;">
+          <div style="font-size:2.2em;font-weight:900;color:var(--success);">RTO &lt; 1분</div>
+        </div>
+        <ul style="font-size:0.6em;list-style:none;padding:0;">
+          <li><i class="fa fa-check" style="color:var(--success)"></i> 백업 데이터 직접 마운트</li>
+          <li><i class="fa fa-check" style="color:var(--success)"></i> 전용 캐시 공간 (원본 보호)</li>
+          <li><i class="fa fa-check" style="color:var(--success)"></i> 라이브 마이그레이션 지원</li>
+        </ul>
+      </div>
+      <div class="glass-card fragment" style="padding:20px;border-top:3px solid var(--warning);">
+        <h3 style="font-size:0.85em;color:var(--warning);"><i class="fa fa-shuffle"></i> Cross-Platform</h3>
+        <ul style="font-size:0.6em;list-style:none;padding:0;">
+          <li><i class="fa fa-check" style="color:var(--success)"></i> 이기종 플랫폼 VM 복구</li>
+          <li><i class="fa fa-check" style="color:var(--success)"></i> 데이터 포맷 자동 변환</li>
+          <li><i class="fa fa-check" style="color:var(--success)"></i> 드라이버 교체 + 부팅 수정</li>
+          <li><i class="fa fa-check" style="color:var(--success)"></i> V2V / V to AWS EC2</li>
+        </ul>
+      </div>
+    </div>
+    <div class="quote-box fragment" style="text-align:center;">
+      <i class="fa fa-trophy" style="color:var(--accent)"></i>&nbsp; <strong>3대 경쟁력</strong>: Agentless + 1분 이내 즉시 복구 + 크로스플랫폼 DR — VMware→XenServer 마이그레이션 고객에게 강력한 셀링 포인트
+    </div>
+  </div>
+  <aside class="notes">Vinchin의 핵심 경쟁력 세 가지입니다. 특히 Cross-Platform Recovery는 VMware에서 XenServer로 마이그레이션하는 고객에게 강력합니다.</aside>
+</section>
+
+<!-- 5-2: SERVER/DB/CDP -->
+<section data-background-gradient="radial-gradient(ellipse at 70% 30%, rgba(0,119,182,0.2) 0%, transparent 55%), #0a0e1a">
+  <p class="subtitle">Section 5-2 · 10분</p>
+  <h2 style="text-align:center;"><i class="fa fa-database" style="color:var(--accent)"></i> 서버/DB/파일 백업 & CDP</h2>
+  <div style="max-width:920px;margin:0 auto;">
+    <div class="grid-2" style="gap:16px;margin-bottom:16px;">
+      <div class="glass-card fragment" style="padding:18px;">
+        <h3 style="font-size:0.85em;"><i class="fa fa-server"></i> 서버 백업</h3>
+        <div style="font-size:0.63em;display:flex;flex-direction:column;gap:4px;">
+          <div><i class="fa fa-check" style="color:var(--success)"></i> Windows, Linux 지원</div>
+          <div><i class="fa fa-check" style="color:var(--success)"></i> 자체 디스크 레벨 일관성 스냅샷</div>
+          <div><i class="fa fa-check" style="color:var(--success)"></i> 소스 측 CBT + Forever Incremental</div>
+          <div><i class="fa fa-check" style="color:var(--success)"></i> P2V, V2V, V2Cloud 복구</div>
+        </div>
+      </div>
+      <div class="glass-card fragment" style="padding:18px;">
+        <h3 style="font-size:0.85em;"><i class="fa fa-database"></i> DB 백업</h3>
+        <div style="font-size:0.63em;display:flex;flex-direction:column;gap:4px;">
+          <div><i class="fa fa-check" style="color:var(--success)"></i> Oracle, SQL Server, MySQL</div>
+          <div><i class="fa fa-check" style="color:var(--success)"></i> Application-Consistent Backup</div>
+          <div><i class="fa fa-check" style="color:var(--success)"></i> Streaming (로컬 캐싱 없이 직접)</div>
+          <div><i class="fa fa-check" style="color:var(--success)"></i> Point-in-Time Recovery</div>
+        </div>
+      </div>
+    </div>
+    <div class="glass-card fragment" style="padding:20px;border-top:3px solid var(--success);">
+      <div style="display:flex;align-items:center;gap:16px;">
+        <div style="text-align:center;min-width:120px;">
+          <i class="fa fa-rotate" style="font-size:2.5em;color:var(--success);"></i>
+          <div style="font-size:0.8em;font-weight:700;color:var(--success);margin-top:6px;">CDP</div>
+          <div style="font-size:0.6em;color:var(--text-secondary);">Continuous Data Protection</div>
+        </div>
+        <div style="font-size:0.65em;">
+          <div style="margin-bottom:6px;"><i class="fa fa-bolt" style="color:var(--success)"></i>&nbsp; 운영 시스템의 <strong>모든 디스크 I/O를 실시간 동기화</strong></div>
+          <div style="margin-bottom:6px;"><i class="fa fa-clock-rotate-left" style="color:var(--success)"></i>&nbsp; 어느 시점으로든 롤백/복구 가능 — <strong style="color:var(--success);">RPO ≈ 0</strong></div>
+          <div style="margin-bottom:6px;"><i class="fa fa-toggle-on" style="color:var(--success)"></i>&nbsp; 실시간 백업 · 실시간 복제 · <strong>자동 장애 조치</strong></div>
+          <div><i class="fa fa-gauge" style="color:var(--success)"></i>&nbsp; 호스트 메모리 모니터링 → 작업 우선순위 동적 조정</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <aside class="notes">CDP는 RPO를 거의 0에 가깝게 만들어줍니다. 핵심 업무 시스템에 적용하면 데이터 손실을 최소화할 수 있습니다.</aside>
+</section>
+
+<!-- 5-3: DR -->
+<section data-background-gradient="radial-gradient(ellipse at 30% 70%, rgba(0,51,161,0.25) 0%, transparent 55%), #0a0e1a">
+  <p class="subtitle">Section 5-3 · 10분</p>
+  <h2 style="text-align:center;"><i class="fa fa-rotate" style="color:var(--accent)"></i> DR & 크로스플랫폼 복구</h2>
+  <div style="max-width:920px;margin:0 auto;">
+    <div class="grid-4 fragment" style="gap:12px;margin-bottom:16px;">
+      <div class="feat-card" style="padding:14px;"><i class="fa fa-bolt"></i><h4>Real-Time<br>Replication</h4><p>운영 I/O 실시간 캡처<br>RPO ≈ 0</p></div>
+      <div class="feat-card" style="padding:14px;"><i class="fa fa-arrow-rotate-right"></i><h4>Resumable<br>Replication</h4><p>전송 중단 시<br>자동 복구</p></div>
+      <div class="feat-card" style="padding:14px;"><i class="fa fa-shield-halved"></i><h4>Server<br>Failover</h4><p>액티브-스탠바이<br>RTO ≈ 0</p></div>
+      <div class="feat-card" style="padding:14px;"><i class="fa fa-arrow-left"></i><h4>One-Click<br>Failback</h4><p>DR → 운영<br>원활한 복원</p></div>
+    </div>
+    <h3 style="font-size:0.85em;text-align:center;margin-bottom:10px;">비즈니스 계층형 보호</h3>
+    <div class="grid-3 fragment" style="gap:14px;margin-bottom:16px;">
+      <div style="background:rgba(0,200,83,0.08);border-radius:12px;padding:16px;text-align:center;border:1px solid rgba(0,200,83,0.2);">
+        <div style="font-size:0.7em;color:var(--text-secondary);">Day-level</div>
+        <div style="font-size:1.5em;font-weight:900;color:var(--text-primary);">일 단위</div>
+        <div style="font-size:0.6em;color:var(--text-secondary);">Offsite Copy</div>
+      </div>
+      <div style="background:rgba(0,180,216,0.08);border-radius:12px;padding:16px;text-align:center;border:1px solid rgba(0,180,216,0.2);">
+        <div style="font-size:0.7em;color:var(--text-secondary);">Hour-level</div>
+        <div style="font-size:1.5em;font-weight:900;color:var(--accent);">시간 단위</div>
+        <div style="font-size:0.6em;color:var(--text-secondary);">Disaster Recovery</div>
+      </div>
+      <div style="background:rgba(0,200,83,0.12);border-radius:12px;padding:16px;text-align:center;border:1px solid rgba(0,200,83,0.3);">
+        <div style="font-size:0.7em;color:var(--text-secondary);">Second-level</div>
+        <div style="font-size:1.5em;font-weight:900;color:var(--success);">초 단위</div>
+        <div style="font-size:0.6em;color:var(--text-secondary);">Real-Time Replication</div>
+      </div>
+    </div>
+    <div class="glass-card fragment" style="padding:16px;">
+      <h3 style="font-size:0.85em;margin-bottom:8px;"><i class="fa fa-shuffle"></i> 크로스플랫폼 자동 처리</h3>
+      <div class="grid-3" style="gap:10px;font-size:0.63em;">
+        <div style="text-align:center;"><div class="num-circle" style="width:36px;height:36px;font-size:0.8em;margin:0 auto 6px;">1</div><strong>Heterogeneous Conversion</strong><br>데이터 포맷/시스템 자동 변환</div>
+        <div style="text-align:center;"><div class="num-circle" style="width:36px;height:36px;font-size:0.8em;margin:0 auto 6px;">2</div><strong>Drive Replacement</strong><br>내장 드라이버 자동 매칭/교체</div>
+        <div style="text-align:center;"><div class="num-circle" style="width:36px;height:36px;font-size:0.8em;margin:0 auto 6px;">3</div><strong>Automatic Boot Fix</strong><br>복구 후 시스템 부팅 자동 수정</div>
+      </div>
+    </div>
+  </div>
+  <aside class="notes">크로스플랫폼 DR이 왜 중요한가? 랜섬웨어가 특정 하이퍼바이저를 공격하면, 다른 플랫폼으로 복구할 수 있다는 것은 최후의 보험입니다.</aside>
+</section>
+
+<!-- 5-4: SECURITY -->
+<section data-background-gradient="radial-gradient(ellipse at 60% 40%, rgba(0,119,182,0.2) 0%, transparent 55%), #0a0e1a">
+  <p class="subtitle">Section 5-4 · 10분</p>
+  <h2 style="text-align:center;"><i class="fa fa-shield-virus" style="color:var(--accent)"></i> 보안: Immutable Storage & Ransomware 방어</h2>
+  <div style="max-width:920px;margin:0 auto;">
+    <div class="danger-box fragment" style="text-align:center;margin-bottom:16px;font-size:0.75em;">
+      <i class="fa fa-skull-crossbones"></i>&nbsp; "랜섬웨어 공격자는 운영 데이터 침해에 앞서 <strong>백업을 먼저 파괴</strong>하는 것을 우선시"
+    </div>
+    <div class="grid-2" style="gap:16px;margin-bottom:16px;">
+      <div class="glass-card fragment" style="padding:18px;">
+        <h3 style="font-size:0.85em;"><i class="fa fa-lock"></i> Immutable Storage</h3>
+        <div style="font-size:0.63em;display:flex;flex-direction:column;gap:6px;">
+          <div><i class="fa fa-fingerprint" style="color:var(--accent)"></i>&nbsp; <strong>Process Authentication</strong> — 비정상 동작 즉시 차단</div>
+          <div><i class="fa fa-shield-virus" style="color:var(--accent)"></i>&nbsp; <strong>Anti-Ransomware</strong> — 커널 수준 강화</div>
+          <div><i class="fa fa-file-shield" style="color:var(--accent)"></i>&nbsp; <strong>WORM Protection</strong> — 루트 계정도 삭제/변조 불가</div>
+          <div><i class="fa fa-database" style="color:var(--accent)"></i>&nbsp; <strong>Immutable</strong> — 네이티브 변경 불가, Object Lock</div>
+        </div>
+      </div>
+      <div class="glass-card fragment" style="padding:18px;">
+        <h3 style="font-size:0.85em;"><i class="fa fa-virus-slash"></i> Malware Scan</h3>
+        <div style="font-size:0.63em;display:flex;flex-direction:column;gap:6px;">
+          <div><i class="fa fa-magnifying-glass" style="color:var(--accent)"></i>&nbsp; <strong>Auto Scan</strong> — 백업 데이터 자동 바이러스 스캔</div>
+          <div><i class="fa fa-box" style="color:var(--accent)"></i>&nbsp; <strong>Isolated Sandbox</strong> — DR Lab 격리 환경 스캔</div>
+          <div><i class="fa fa-microchip" style="color:var(--accent)"></i>&nbsp; <strong>내장 Antivirus</strong> — 외부 환경 불필요</div>
+          <div><i class="fa fa-check-double" style="color:var(--success)"></i>&nbsp; <strong>Secure Backup</strong> — 깨끗한 복구 포인트 식별</div>
+        </div>
+      </div>
+    </div>
+    <div class="glass-card fragment" style="padding:16px;text-align:center;border-color:rgba(0,200,83,0.3);">
+      <h3 style="font-size:0.85em;color:var(--success);"><i class="fa fa-vial"></i> Verification (백업 검증)</h3>
+      <div class="grid-3" style="gap:12px;margin-top:10px;">
+        <div style="font-size:0.63em;"><strong style="color:var(--success);">0</strong> verification resource cost<br><span style="color:var(--text-secondary);">추가 서버/스토리지 불필요</span></div>
+        <div style="font-size:0.63em;"><strong style="color:var(--success);">0</strong> impact on production<br><span style="color:var(--text-secondary);">자동 격리 검증 환경</span></div>
+        <div style="font-size:0.63em;"><strong style="color:var(--success);">Auto</strong> verification<br><span style="color:var(--text-secondary);">정기적 자동 검증</span></div>
+      </div>
+    </div>
+  </div>
+  <aside class="notes">백업 데이터가 안전하다는 것을 어떻게 증명합니까? Vinchin은 내장 안티바이러스 엔진으로 깨끗한 복구 포인트를 자동 식별합니다.</aside>
+</section>
+
+<!-- 5-5: CBT vs SPEEDKIT -->
+<section data-background-gradient="radial-gradient(ellipse at 40% 60%, rgba(0,51,161,0.25) 0%, transparent 55%), #0a0e1a">
+  <p class="subtitle">Section 5-5 · 10분</p>
+  <h2 style="text-align:center;"><i class="fa fa-scale-balanced" style="color:var(--accent)"></i> CBT vs SpeedKit 비교</h2>
+  <div style="max-width:920px;margin:0 auto;">
+    <table class="styled-table" style="font-size:0.63em;">
+      <thead><tr><th style="width:20%;">비교 항목</th><th>Vinchin CBT (성능 최적화)</th><th class="highlight-col">SpeedKit (안정성, 권장 ✓)</th></tr></thead>
+      <tbody>
+        <tr class="fragment"><td style="font-weight:600;text-align:left;">변경 블록 추적</td><td>자체 드라이버 방식</td><td class="highlight-col">디스크 스캔 기반 비교</td></tr>
+        <tr class="fragment"><td style="font-weight:600;text-align:left;">Snapshot 의존성</td><td style="color:var(--danger);font-weight:700;">매우 높음</td><td class="highlight-col" style="color:var(--success)!important;">낮음 (상대적 독립)</td></tr>
+        <tr class="fragment"><td style="font-weight:600;text-align:left;">체인 민감도</td><td style="color:var(--danger);">민감 (정리 실패 시 붕괴)</td><td class="highlight-col" style="color:var(--success)!important;">둔감 (유연함)</td></tr>
+        <tr class="fragment"><td style="font-weight:600;text-align:left;">장애 시 영향</td><td style="color:var(--danger);">체인 전체 리셋(Full) 필요</td><td class="highlight-col" style="color:var(--success)!important;">해당 시점만 실패, 다음 정상</td></tr>
+        <tr class="fragment"><td style="font-weight:600;text-align:left;">운영 난이도</td><td>상 (전문 트러블슈팅)</td><td class="highlight-col" style="color:var(--success)!important;">하 (자동 복구 용이)</td></tr>
+        <tr class="fragment"><td style="font-weight:600;text-align:left;">권장 환경</td><td>대규모/고성능/안정 인프라</td><td class="highlight-col" style="color:var(--success)!important;font-weight:700;">일반 운영 환경 (기본값)</td></tr>
+      </tbody>
+    </table>
+    <div class="quote-box fragment" style="margin-top:14px;text-align:center;font-style:normal;">
+      <i class="fa fa-star" style="color:var(--accent)"></i>&nbsp; <strong>핵심 정책</strong>: "SpeedKit이 기본값(Default). CBT는 예외 정책으로 제한적 허용"
+    </div>
+  </div>
+  <aside class="notes">고객에게는 항상 SpeedKit을 먼저 권장하세요. CBT가 효율적으로 보이지만 Snapshot 체인이 깨지면 전체 Full을 다시 해야 합니다. 안정성이 곧 비용 절감입니다.</aside>
+</section>
+
+<!-- RECOVERY METHODS -->
+<section data-background-gradient="radial-gradient(ellipse at 70% 70%, rgba(0,82,204,0.2) 0%, transparent 55%), #0a0e1a">
+  <h2 style="text-align:center;font-size:1.4em;"><i class="fa fa-rotate-left" style="color:var(--accent)"></i> VM 복구 방식 선택 가이드</h2>
+  <div style="max-width:920px;margin:0 auto;">
+    <table class="styled-table fragment" style="font-size:0.62em;">
+      <thead><tr><th style="width:18%;">구분</th><th>Full VM Restore</th><th class="highlight-col">Instant VM Restore</th><th>Granular VM Restore</th></tr></thead>
+      <tbody>
+        <tr><td style="font-weight:600;text-align:left;">RTO</td><td>수십분~수시간</td><td class="highlight-col" style="color:var(--success)!important;font-weight:700;">수초~수분</td><td style="color:var(--success);">수초~수분</td></tr>
+        <tr><td style="font-weight:600;text-align:left;">프로덕션 스토리지</td><td>필수 (전체 카피)</td><td class="highlight-col">선택적</td><td style="color:var(--success);">불필요</td></tr>
+        <tr><td style="font-weight:600;text-align:left;">주요 용도</td><td>일반 장애 복구, DR 테스트</td><td class="highlight-col" style="font-weight:700;">핵심 업무 긴급 복구</td><td>파일/폴더 실수 삭제</td></tr>
+        <tr><td style="font-weight:600;text-align:left;">리소스 소비</td><td style="color:var(--danger);">높음</td><td class="highlight-col">중간</td><td style="color:var(--success);">최소</td></tr>
+      </tbody>
+    </table>
+    <div class="grid-3 fragment" style="gap:14px;margin-top:16px;">
+      <div style="background:rgba(0,180,216,0.08);border-radius:12px;padding:14px;text-align:center;border:1px solid rgba(0,180,216,0.2);">
+        <i class="fa fa-clock" style="color:var(--accent);font-size:1.3em;"></i>
+        <div style="font-size:0.7em;font-weight:600;margin-top:6px;">RTO 최우선</div>
+        <div style="font-size:0.6em;color:var(--accent);font-weight:700;">→ Instant Restore</div>
+      </div>
+      <div style="background:rgba(0,200,83,0.08);border-radius:12px;padding:14px;text-align:center;border:1px solid rgba(0,200,83,0.2);">
+        <i class="fa fa-file" style="color:var(--success);font-size:1.3em;"></i>
+        <div style="font-size:0.7em;font-weight:600;margin-top:6px;">특정 파일만</div>
+        <div style="font-size:0.6em;color:var(--success);font-weight:700;">→ Granular Restore</div>
+      </div>
+      <div style="background:rgba(255,171,0,0.08);border-radius:12px;padding:14px;text-align:center;border:1px solid rgba(255,171,0,0.2);">
+        <i class="fa fa-server" style="color:var(--warning);font-size:1.3em;"></i>
+        <div style="font-size:0.7em;font-weight:600;margin-top:6px;">완전 재구성</div>
+        <div style="font-size:0.6em;color:var(--warning);font-weight:700;">→ Full Restore</div>
+      </div>
+    </div>
+  </div>
+  <aside class="notes">복구 방식 선택은 RTO 요구사항에 따라 결정합니다. 핵심 업무는 Instant Restore, 파일 복구는 Granular, 전체 환경 재구성은 Full Restore입니다.</aside>
+</section>
+
+<!-- Q&A -->
+<section data-background-gradient="radial-gradient(ellipse at 50% 50%, rgba(0,51,161,0.4) 0%, transparent 55%), #0a0e1a">
+  <div style="text-align:center;padding-top:30px;">
+    <div style="width:120px;height:120px;background:linear-gradient(135deg,var(--primary),var(--accent));border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:3.5em;font-weight:900;color:#fff;margin:0 auto 24px;box-shadow:0 12px 48px rgba(0,180,216,0.3);">?</div>
+    <h1 style="font-size:2em;">모듈 5 Q&A</h1>
+    <div style="max-width:700px;margin:24px auto 0;text-align:left;">
+      <div class="glass-card" style="padding:16px;margin-bottom:10px;">
+        <p style="font-size:0.68em;margin:0;"><strong style="color:var(--accent);">Q. CBT와 SpeedKit 중 어떤 것이 빠른가요?</strong><br><span style="color:var(--text-secondary);">A. CBT가 전송량 적어 빠르지만 장애 리스크 높음. SpeedKit이 안정적 기본값입니다.</span></p>
+      </div>
+      <div class="glass-card" style="padding:16px;margin-bottom:10px;">
+        <p style="font-size:0.68em;margin:0;"><strong style="color:var(--accent);">Q. 랜섬웨어 감염된 백업을 복구하면?</strong><br><span style="color:var(--text-secondary);">A. Malware Scan으로 깨끗한 복구 포인트 식별 가능. Granular Restore 시 보안 스캔 권장.</span></p>
+      </div>
+      <div class="glass-card" style="padding:16px;">
+        <p style="font-size:0.68em;margin:0;"><strong style="color:var(--accent);">Q. CDP와 일반 Incremental의 차이는?</strong><br><span style="color:var(--text-secondary);">A. CDP는 실시간(초 단위), Incremental은 스케줄(시간/일 단위). RPO 요구사항에 따라 선택.</span></p>
+      </div>
+    </div>
+  </div>
+  <aside class="notes">모듈 5 Q&A 시간입니다.</aside>
+</section>
+
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
+<script>Reveal.initialize({hash:true,slideNumber:'c/t',showSlideNumber:'all',transition:'slide',backgroundTransition:'fade',width:1280,height:720,margin:0.04,center:true,plugins:[RevealNotes]});</script>
+</body>
+</html>

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>XenServer & Vinchin 교육자료</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--primary:#0033A1;--accent:#00B4D8;--mid-blue:#0077B6;--dark-bg:#0a0e1a;--card-bg:rgba(255,255,255,0.05);--card-border:rgba(255,255,255,0.08);--text-primary:#f0f4ff;--text-secondary:rgba(240,244,255,0.65);--success:#00c853;--warning:#ffab00}
+body{font-family:'Pretendard',sans-serif;background:var(--dark-bg);color:var(--text-primary);min-height:100vh;overflow-x:hidden}
+.bg-gradient{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;
+  background:radial-gradient(ellipse at 20% 80%, rgba(0,51,161,0.25) 0%, transparent 55%),
+  radial-gradient(ellipse at 80% 20%, rgba(0,180,216,0.12) 0%, transparent 45%),
+  radial-gradient(ellipse at 50% 50%, rgba(0,119,182,0.08) 0%, transparent 60%),var(--dark-bg)}
+.container{position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:60px 24px}
+h1{font-size:2.8em;font-weight:900;letter-spacing:-0.03em;line-height:1.15;margin-bottom:8px}
+h1 span{background:linear-gradient(90deg,var(--accent),#66e0ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.subtitle{color:var(--text-secondary);font-size:1em;margin-bottom:12px}
+.section-line{width:80px;height:3px;background:linear-gradient(90deg,var(--accent),transparent);border-radius:2px;margin-bottom:40px}
+.tag{display:inline-block;padding:5px 16px;border-radius:20px;font-size:0.8em;font-weight:600;background:rgba(0,82,204,0.25);color:var(--accent);border:1px solid rgba(0,180,216,0.25);margin:4px}
+.schedule{display:grid;grid-template-columns:100px 1fr;gap:0;margin-bottom:48px;font-size:0.9em}
+.schedule-time{padding:14px 0;color:var(--accent);font-weight:700;border-right:2px solid rgba(0,180,216,0.2);text-align:right;padding-right:20px}
+.schedule-item{padding:14px 0 14px 20px;border-bottom:1px solid rgba(255,255,255,0.04);color:var(--text-secondary)}
+.schedule-item.break{color:rgba(255,255,255,0.3);font-style:italic}
+.modules{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:48px}
+@media(max-width:768px){.modules{grid-template-columns:1fr}h1{font-size:2em}}
+.module-card{background:var(--card-bg);backdrop-filter:blur(16px);border:1px solid var(--card-border);border-radius:20px;padding:32px;transition:all 0.35s ease;text-decoration:none;color:inherit;display:block;position:relative;overflow:hidden}
+.module-card:hover{border-color:rgba(0,180,216,0.4);box-shadow:0 12px 48px rgba(0,180,216,0.12);transform:translateY(-4px)}
+.module-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--primary),var(--accent));opacity:0;transition:opacity 0.3s}
+.module-card:hover::before{opacity:1}
+.module-num{font-size:3em;font-weight:900;background:linear-gradient(135deg,var(--accent),var(--primary));-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1;margin-bottom:8px}
+.module-title{font-size:1.15em;font-weight:700;margin-bottom:6px}
+.module-meta{font-size:0.8em;color:var(--text-secondary);margin-bottom:12px}
+.module-topics{display:flex;flex-wrap:wrap;gap:6px}
+.module-topics span{font-size:0.7em;padding:3px 10px;border-radius:12px;background:rgba(0,82,204,0.15);color:rgba(0,180,216,0.9);border:1px solid rgba(0,180,216,0.15)}
+.footer{text-align:center;padding:40px 0;border-top:1px solid rgba(255,255,255,0.05);color:var(--text-secondary);font-size:0.85em}
+.footer .logo{font-size:1.4em;font-weight:900;color:var(--accent);margin-bottom:8px}
+.info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:48px}
+@media(max-width:768px){.info-grid{grid-template-columns:1fr}}
+.info-card{background:var(--card-bg);border:1px solid var(--card-border);border-radius:14px;padding:24px;text-align:center}
+.info-card i{font-size:1.8em;color:var(--accent);margin-bottom:10px}
+.info-card h3{font-size:1em;margin-bottom:4px}
+.info-card p{font-size:0.8em;color:var(--text-secondary)}
+</style>
+</head>
+<body>
+<div class="bg-gradient"></div>
+<div class="container">
+
+<!-- HEADER -->
+<header style="margin-bottom:48px;">
+  <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;opacity:0.7;">
+    <span style="font-size:1.6em;font-weight:900;color:var(--accent);">X</span>
+    <span style="font-size:0.9em;color:var(--text-secondary);">XenServer By Citrix &nbsp;×&nbsp; Vinchin Backup & Recovery</span>
+  </div>
+  <h1>XenServer & Vinchin<br><span>파트너 기술 교육</span></h1>
+  <p class="subtitle">Citrix 파트너사 기술지원 엔지니어 및 영업사원을 위한 체계적 교육 프로그램</p>
+  <div class="section-line"></div>
+  <div style="display:flex;flex-wrap:wrap;gap:8px;">
+    <span class="tag"><i class="fa fa-users"></i>&nbsp; 초급~중급</span>
+    <span class="tag"><i class="fa fa-clock"></i>&nbsp; 5시간 (6시간 with 휴식)</span>
+    <span class="tag"><i class="fa fa-layer-group"></i>&nbsp; 6개 모듈</span>
+    <span class="tag"><i class="fa fa-file-lines"></i>&nbsp; 핸드아웃 6종</span>
+  </div>
+</header>
+
+<!-- INFO CARDS -->
+<div class="info-grid">
+  <div class="info-card">
+    <i class="fa fa-bullseye"></i>
+    <h3>교육 목표</h3>
+    <p>XenServer 8.4 라이선싱/아키텍처와 Vinchin 백업/DR 기술의 체계적 이해</p>
+  </div>
+  <div class="info-card">
+    <i class="fa fa-graduation-cap"></i>
+    <h3>교육 철학</h3>
+    <p>이론보다 "현장에서 꼭 알아야 할 것" 위주 — 실무 중심 교육</p>
+  </div>
+  <div class="info-card">
+    <i class="fa fa-keyboard"></i>
+    <h3>사용법</h3>
+    <p>각 모듈 클릭 → 방향키 이동, S키 발표자 노트, F키 전체화면</p>
+  </div>
+</div>
+
+<!-- SCHEDULE -->
+<h2 style="font-size:1.4em;margin-bottom:16px;"><i class="fa fa-calendar-days" style="color:var(--accent)"></i> 시간표</h2>
+<div class="schedule">
+  <div class="schedule-time">09:00</div><div class="schedule-item">오프닝 & 교육 개요 (10분)</div>
+  <div class="schedule-time">09:10</div><div class="schedule-item"><strong>모듈 1</strong> — XenServer 라이선싱 (40분)</div>
+  <div class="schedule-time">09:50</div><div class="schedule-item break">── 휴식 10분 ──</div>
+  <div class="schedule-time">10:00</div><div class="schedule-item"><strong>모듈 2</strong> — XenServer 아키텍처 & 운영 기초 (60분)</div>
+  <div class="schedule-time">11:00</div><div class="schedule-item break">── 휴식 10분 ──</div>
+  <div class="schedule-time">11:10</div><div class="schedule-item"><strong>모듈 3</strong> — VM 운영관리 & 장애 대응 (40분)</div>
+  <div class="schedule-time">11:50</div><div class="schedule-item break">── 점심 60분 ──</div>
+  <div class="schedule-time">12:50</div><div class="schedule-item"><strong>모듈 4</strong> — Vinchin 라이선싱 & 제품 개요 (40분)</div>
+  <div class="schedule-time">13:30</div><div class="schedule-item"><strong>모듈 5</strong> — Vinchin 백업 기술 & 보안 (50분)</div>
+  <div class="schedule-time">14:20</div><div class="schedule-item break">── 휴식 10분 ──</div>
+  <div class="schedule-time">14:30</div><div class="schedule-item"><strong>모듈 6</strong> — 종합 Q&A & 실무 가이드 (30분)</div>
+</div>
+
+<!-- MODULES -->
+<h2 style="font-size:1.4em;margin-bottom:20px;"><i class="fa fa-book-open" style="color:var(--accent)"></i> 교육 모듈</h2>
+<div class="modules">
+  <a href="module1_xenserver_licensing.html" class="module-card">
+    <div class="module-num">01</div>
+    <div class="module-title">XenServer 8.4 라이선스 전략</div>
+    <div class="module-meta"><i class="fa fa-clock"></i> 40분 · 18 슬라이드 · 영업+기술 공통</div>
+    <div class="module-topics">
+      <span>CVAD 분리</span><span>Per-Socket</span><span>TCO 비교</span><span>DR 전략</span><span>PoC</span>
+    </div>
+  </a>
+  <a href="module2_architecture.html" class="module-card">
+    <div class="module-num">02</div>
+    <div class="module-title">XenServer 아키텍처 & 운영 기초</div>
+    <div class="module-meta"><i class="fa fa-clock"></i> 60분 · 10 슬라이드 · 초급→중급</div>
+    <div class="module-topics">
+      <span>Resource Pool</span><span>Coordinator</span><span>HA</span><span>Storage</span><span>Networking</span>
+    </div>
+  </a>
+  <a href="module3_vm_troubleshooting.html" class="module-card">
+    <div class="module-num">03</div>
+    <div class="module-title">VM 운영관리 & 장애 대응</div>
+    <div class="module-meta"><i class="fa fa-clock"></i> 40분 · 9 슬라이드 · 초급→중급</div>
+    <div class="module-topics">
+      <span>XenTools 필수</span><span>Snapshot ≠ 백업</span><span>3대 장애</span><span>로그 분석</span>
+    </div>
+  </a>
+  <a href="module4_vinchin_licensing.html" class="module-card">
+    <div class="module-num">04</div>
+    <div class="module-title">Vinchin 라이선싱 & 제품 개요</div>
+    <div class="module-meta"><i class="fa fa-clock"></i> 40분 · 8 슬라이드 · 영업+기술 공통</div>
+    <div class="module-topics">
+      <span>Perpetual vs Subscription</span><span>Per Socket/VM</span><span>VLK</span><span>아키텍처</span>
+    </div>
+  </a>
+  <a href="module5_vinchin_backup.html" class="module-card">
+    <div class="module-num">05</div>
+    <div class="module-title">Vinchin 백업 기술 & 보안</div>
+    <div class="module-meta"><i class="fa fa-clock"></i> 50분 · 10 슬라이드 · 기술 심화</div>
+    <div class="module-topics">
+      <span>Agentless</span><span>Instant Recovery</span><span>CDP</span><span>Immutable</span><span>SpeedKit</span>
+    </div>
+  </a>
+  <a href="module6_qa_guide.html" class="module-card">
+    <div class="module-num">06</div>
+    <div class="module-title">종합 Q&A & 실무 가이드</div>
+    <div class="module-meta"><i class="fa fa-clock"></i> 30분 · 6 슬라이드 · 종합</div>
+    <div class="module-topics">
+      <span>연동 구성</span><span>백업 표준안</span><span>참고자료</span><span>Q&A</span>
+    </div>
+  </a>
+</div>
+
+<!-- SPECIAL LECTURE -->
+<h2 style="font-size:1.4em;margin-bottom:20px;margin-top:8px;"><i class="fa fa-star" style="color:#7C3AED"></i> 특별 강의</h2>
+<a href="special_ai_support_pool.html" class="module-card" style="border-color:rgba(124,58,237,0.3);margin-bottom:48px;">
+  <div style="display:flex;align-items:center;gap:24px;">
+    <div class="module-num" style="background:linear-gradient(135deg,#7C3AED,#0078D4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">SP</div>
+    <div style="flex:1;">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
+        <div class="module-title">Claude Code를 활용한 AI 기반 XenServer 기술지원 Pool 구축</div>
+        <span class="tag" style="background:linear-gradient(135deg,#7C3AED,#E04040);color:#fff;border:none;font-size:0.6em;">SPECIAL</span>
+      </div>
+      <div class="module-meta"><i class="fa fa-clock"></i> 55~60분 · 17 슬라이드 · 강의 35분 + Hands-on 실습 20분</div>
+      <div class="module-topics">
+        <span style="border-color:rgba(124,58,237,0.3);color:#A78BFA;">Claude Code</span>
+        <span style="border-color:rgba(124,58,237,0.3);color:#A78BFA;">CLAUDE.md 지식베이스</span>
+        <span style="border-color:rgba(124,58,237,0.3);color:#A78BFA;">MCP 서버</span>
+        <span style="border-color:rgba(124,58,237,0.3);color:#A78BFA;">로그 자동 분석</span>
+        <span style="border-color:rgba(124,58,237,0.3);color:#A78BFA;">Hands-on Lab</span>
+      </div>
+    </div>
+  </div>
+</a>
+
+<!-- HANDOUTS -->
+<h2 style="font-size:1.4em;margin-bottom:20px;"><i class="fa fa-file-lines" style="color:var(--accent)"></i> 핸드아웃 (인쇄용)</h2>
+<a href="handouts.html" class="module-card" style="margin-bottom:48px;">
+  <div style="display:flex;align-items:center;gap:20px;">
+    <div style="font-size:2.5em;color:var(--accent);"><i class="fa fa-print"></i></div>
+    <div style="flex:1;">
+      <div class="module-title">핸드아웃 H1~H6 (인쇄/PDF 최적화)</div>
+      <div class="module-meta"><i class="fa fa-file"></i> 6종 · A4 인쇄 최적화 · Ctrl+P로 바로 인쇄 가능</div>
+      <div class="module-topics">
+        <span>H1 HA vs LM 판단</span>
+        <span>H2 CBT vs SpeedKit</span>
+        <span>H3 백업 표준안</span>
+        <span>H4 복구 방식 가이드</span>
+        <span>H5 HA 체크리스트</span>
+        <span>H6 HA 환경 판별</span>
+      </div>
+    </div>
+  </div>
+</a>
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="logo">X &nbsp;XenServer × Vinchin</div>
+  <p>Citrix Partner Technical Training Program</p>
+  <p style="margin-top:6px;font-size:0.8em;opacity:0.5;">Built with Reveal.js · Designed for modern browsers</p>
+</div>
+
+</div>
+</body>
+</html>
