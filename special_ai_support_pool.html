@@ -10,17 +10,17 @@
 <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet">
 <style>
 :root{--primary:#1B2A4A;--primary-light:#0078D4;--accent:#7C3AED;--accent-light:#A78BFA;--coral:#E04040;--dark-bg:#0a0a14;--card-bg:rgba(255,255,255,0.05);--card-border:rgba(255,255,255,0.08);--text-primary:#f0f2ff;--text-secondary:rgba(240,242,255,0.65);--success:#00c853;--warning:#ffab00;--danger:#E04040;--blue:#0078D4}
-.reveal-viewport{background:var(--dark-bg)}.reveal{font-family:'Pretendard',sans-serif;color:var(--text-primary)}.reveal h1,.reveal h2,.reveal h3,.reveal h4{font-family:'Pretendard',sans-serif;font-weight:700;color:var(--text-primary);text-transform:none;letter-spacing:-0.02em}.reveal h2{font-size:1.25em;margin-bottom:0.3em}.reveal h3{font-size:0.9em;color:var(--accent-light);font-weight:600}.reveal p,.reveal li{font-size:0.65em;line-height:1.6;color:var(--text-secondary)}.reveal section{text-align:left}.reveal .slides>section{padding:30px 50px;}.reveal .progress{height:3px;color:var(--accent)}.reveal .slide-number{font-family:'Pretendard';font-size:14px;color:var(--text-secondary);background:transparent}
-.glass-card{background:var(--card-bg);backdrop-filter:blur(20px);border:1px solid var(--card-border);border-radius:16px;padding:14px;transition:all 0.3s}.glass-card:hover{border-color:rgba(124,58,237,0.3);box-shadow:0 8px 32px rgba(124,58,237,0.1)}
+.reveal-viewport{background:var(--dark-bg)}.reveal{font-family:'Pretendard',sans-serif;color:var(--text-primary)}.reveal h1,.reveal h2,.reveal h3,.reveal h4{font-family:'Pretendard',sans-serif;font-weight:700;color:var(--text-primary);text-transform:none;letter-spacing:-0.02em}.reveal h2{font-size:2.0em;margin-bottom:0.4em}.reveal h3{font-size:1.3em;color:var(--accent-light);font-weight:600}.reveal p,.reveal li{font-size:0.95em;line-height:1.6;color:var(--text-secondary)}.reveal section{text-align:left}.reveal .slides>section{padding:30px 60px;}.reveal .progress{height:3px;color:var(--accent)}.reveal .slide-number{font-family:'Pretendard';font-size:14px;color:var(--text-secondary);background:transparent}
+.glass-card{background:var(--card-bg);backdrop-filter:blur(20px);border:1px solid var(--card-border);border-radius:16px;padding:24px;transition:all 0.3s}.glass-card:hover{border-color:rgba(124,58,237,0.3);box-shadow:0 8px 32px rgba(124,58,237,0.1)}
 .tag{display:inline-block;padding:4px 14px;border-radius:20px;font-size:0.65em;font-weight:600}.tag-purple{background:rgba(124,58,237,0.2);color:var(--accent-light);border:1px solid rgba(124,58,237,0.3)}.tag-blue{background:rgba(0,120,212,0.2);color:var(--blue);border:1px solid rgba(0,120,212,0.3)}.tag-green{background:rgba(0,200,83,0.15);color:var(--success);border:1px solid rgba(0,200,83,0.3)}.tag-red{background:rgba(224,64,64,0.15);color:var(--coral);border:1px solid rgba(224,64,64,0.3)}.tag-special{background:linear-gradient(135deg,var(--accent),var(--coral));color:#fff;border:none;animation:pulse-glow 2s infinite}
 @keyframes pulse-glow{0%,100%{box-shadow:0 0 8px rgba(124,58,237,0.4)}50%{box-shadow:0 0 20px rgba(124,58,237,0.7)}}
-.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:14px}.grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
-.num-circle{width:38px;height:38px;background:linear-gradient(135deg,var(--accent),var(--primary-light));border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.9em;font-weight:800;color:#fff;flex-shrink:0;box-shadow:0 4px 16px rgba(124,58,237,0.4)}
-.section-line{width:60px;height:3px;background:linear-gradient(90deg,var(--accent),transparent);margin:4px 0 8px 0;border-radius:2px}.subtitle{color:var(--accent-light);font-size:0.7em;font-weight:500;margin-bottom:4px;letter-spacing:0.1em;text-align:center}
-.quote-box{background:rgba(124,58,237,0.08);border-left:3px solid var(--accent);border-radius:0 12px 12px 0;padding:10px 14px;font-style:italic;font-size:0.63em;color:var(--text-secondary)}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:24px}.grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px}.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.num-circle{width:56px;height:56px;background:linear-gradient(135deg,var(--accent),var(--primary-light));border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.2em;font-weight:800;color:#fff;flex-shrink:0;box-shadow:0 4px 16px rgba(124,58,237,0.4)}
+.section-line{width:60px;height:3px;background:linear-gradient(90deg,var(--accent),transparent);margin:8px 0 16px 0;border-radius:2px}.subtitle{color:var(--accent-light);font-size:0.7em;font-weight:500;margin-bottom:4px;letter-spacing:0.1em;text-align:center}
+.quote-box{background:rgba(124,58,237,0.08);border-left:3px solid var(--accent);border-radius:0 12px 12px 0;padding:16px 24px;font-style:italic;font-size:0.9em;color:var(--text-secondary)}
 .code-block{background:rgba(0,0,0,0.6);border:1px solid rgba(124,58,237,0.2);border-radius:10px;padding:16px 20px;font-family:'Fira Code','Cascadia Code',monospace;font-size:0.62em;color:var(--accent-light);overflow-x:auto;line-height:1.7}
 .code-block .comment{color:rgba(255,255,255,0.3)}
-.feat-card{background:var(--card-bg);border:1px solid var(--card-border);border-radius:10px;padding:12px;text-align:center;transition:all 0.3s}.feat-card:hover{border-color:rgba(124,58,237,0.4);transform:translateY(-4px)}.feat-card .fa{font-size:1.3em;color:var(--accent-light);margin-bottom:10px}.feat-card h4{font-size:0.68em;margin:4px 0 3px;color:var(--text-primary)}.feat-card p{font-size:0.5em;color:var(--text-secondary);margin:0}
+.feat-card{background:var(--card-bg);border:1px solid var(--card-border);border-radius:14px;padding:20px;text-align:center;transition:all 0.3s}.feat-card:hover{border-color:rgba(124,58,237,0.4);transform:translateY(-4px)}.feat-card .fa{font-size:2.2em;color:var(--accent-light);margin-bottom:10px}.feat-card h4{font-size:0.95em;margin:10px 0 6px;color:var(--text-primary)}.feat-card p{font-size:0.75em;color:var(--text-secondary);margin:0}
 .layer-box{border-radius:12px;padding:16px 20px;text-align:center;font-size:0.7em;font-weight:600}
 .layer-1{background:rgba(27,42,74,0.6);border:1px solid rgba(0,120,212,0.3);color:var(--blue)}
 .layer-2{background:rgba(124,58,237,0.15);border:1px solid rgba(124,58,237,0.3);color:var(--accent-light)}
@@ -41,7 +41,7 @@
     <h1 style="font-size:2.2em;margin:16px 0;line-height:1.2;">Claude Code를 활용한<br><span style="background:linear-gradient(90deg,var(--accent-light),#66b3ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">AI 기반 XenServer 기술지원 Pool 구축</span></h1>
     <div class="section-line" style="margin:16px auto;"></div>
     <p style="font-size:0.9em;color:var(--text-secondary);margin-bottom:28px;">"AI가 기술지원 엔지니어의 생산성을 <strong style="color:var(--accent-light);">10배</strong> 높이는 방법"</p>
-    <div style="display:flex;justify-content:center;gap:10px;flex-wrap:wrap;">
+    <div style="display:flex;justify-content:center;gap:16px;flex-wrap:wrap;">
       <span class="tag tag-purple"><i class="fa fa-clock"></i>&nbsp; 55~60분</span>
       <span class="tag tag-purple"><i class="fa fa-cog"></i>&nbsp; 실무 적용 가이드</span>
       <span class="tag tag-purple"><i class="fa fa-laptop-code"></i>&nbsp; Hands-on 실습 포함</span>
@@ -54,18 +54,18 @@
 <section data-background-gradient="radial-gradient(ellipse at 50% 0%, rgba(124,58,237,0.15) 0%, transparent 60%), #0a0a14">
   <h2 style="text-align:center;"><i class="fa fa-lightbulb" style="color:var(--accent-light)"></i> 왜 AI 기술지원인가?</h2>
   <div class="grid-2" style="max-width:920px;margin:0 auto;gap:28px;">
-    <div class="glass-card fragment" style="border-color:rgba(224,64,64,0.2);padding:14px;">
+    <div class="glass-card fragment" style="border-color:rgba(224,64,64,0.2);padding:24px;">
       <h3 style="color:var(--coral);font-size:0.95em;margin-bottom:14px;"><i class="fa fa-triangle-exclamation"></i> AS-IS (현재의 한계)</h3>
-      <div style="font-size:0.68em;display:flex;flex-direction:column;gap:10px;">
+      <div style="font-size:0.68em;display:flex;flex-direction:column;gap:16px;">
         <div><i class="fa fa-xmark" style="color:var(--coral)"></i>&nbsp; 수천 줄 xensource.log <strong>수동 분석</strong> → 시간 소모</div>
         <div><i class="fa fa-xmark" style="color:var(--coral)"></i>&nbsp; 동일 장애 <strong>반복 대응</strong> → 노하우 단절</div>
         <div><i class="fa fa-xmark" style="color:var(--coral)"></i>&nbsp; 엔지니어 퇴사 시 <strong>지식 유실</strong></div>
         <div><i class="fa fa-xmark" style="color:var(--coral)"></i>&nbsp; 영어 기술문서 <strong>해석 부담</strong></div>
       </div>
     </div>
-    <div class="glass-card fragment" style="border-color:rgba(0,120,212,0.3);padding:14px;">
+    <div class="glass-card fragment" style="border-color:rgba(0,120,212,0.3);padding:24px;">
       <h3 style="color:var(--blue);font-size:0.95em;margin-bottom:14px;"><i class="fa fa-rocket"></i> TO-BE (AI 지원 후)</h3>
-      <div style="font-size:0.68em;display:flex;flex-direction:column;gap:10px;">
+      <div style="font-size:0.68em;display:flex;flex-direction:column;gap:16px;">
         <div><i class="fa fa-check" style="color:var(--success)"></i>&nbsp; 로그 <strong>자동 분석</strong> → 원인 즉시 진단</div>
         <div><i class="fa fa-check" style="color:var(--success)"></i>&nbsp; 대응 이력 <strong>축적</strong> → 재활용 가능</div>
         <div><i class="fa fa-check" style="color:var(--success)"></i>&nbsp; AI에 지식 <strong>내재화</strong> → 팀 전체 공유</div>
@@ -108,23 +108,23 @@
 <!-- SS4: ARCHITECTURE -->
 <section data-background-gradient="radial-gradient(ellipse at 40% 60%, rgba(124,58,237,0.15) 0%, transparent 55%), #0a0a14">
   <h2 style="text-align:center;"><i class="fa fa-sitemap" style="color:var(--accent-light)"></i> 기술지원 Pool 아키텍처</h2>
-  <div style="max-width:700px;margin:0 auto;display:flex;flex-direction:column;gap:12px;">
-    <div class="layer-box layer-1 fragment" style="display:flex;align-items:center;gap:14px;text-align:left;padding:20px;">
+  <div style="max-width:700px;margin:0 auto;display:flex;flex-direction:column;gap:20px;">
+    <div class="layer-box layer-1 fragment" style="display:flex;align-items:center;gap:24px;text-align:left;padding:20px;">
       <div class="num-circle" style="width:44px;height:44px;font-size:0.9em;background:linear-gradient(135deg,var(--primary),var(--blue));">①</div>
       <div><strong style="font-size:0.9em;">Layer 1: CLAUDE.md 지식 베이스</strong><br><span style="font-size:0.65em;color:var(--text-secondary);">장애 유형 카탈로그 | 진단 명령어 | SOP</span></div>
     </div>
     <div style="text-align:center;font-size:1em;color:var(--accent-light);"><i class="fa fa-arrows-up-down"></i></div>
-    <div class="layer-box layer-2 fragment" style="display:flex;align-items:center;gap:14px;text-align:left;padding:20px;">
+    <div class="layer-box layer-2 fragment" style="display:flex;align-items:center;gap:24px;text-align:left;padding:20px;">
       <div class="num-circle" style="width:44px;height:44px;font-size:0.9em;">②</div>
       <div><strong style="font-size:0.9em;">Layer 2: Claude Code AI Engine</strong><br><span style="font-size:0.65em;color:var(--text-secondary);">로그 분석 | 패턴 매칭 | 진단 | 보고서 생성</span></div>
     </div>
     <div style="text-align:center;font-size:1em;color:var(--accent-light);"><i class="fa fa-arrows-up-down"></i></div>
-    <div class="layer-box layer-3 fragment" style="display:flex;align-items:center;gap:14px;text-align:left;padding:20px;">
+    <div class="layer-box layer-3 fragment" style="display:flex;align-items:center;gap:24px;text-align:left;padding:20px;">
       <div class="num-circle" style="width:44px;height:44px;font-size:0.9em;background:linear-gradient(135deg,var(--coral),#ff6b6b);">③</div>
       <div><strong style="font-size:0.9em;">Layer 3: MCP 서버 연동</strong><br><span style="font-size:0.65em;color:var(--text-secondary);">Filesystem | SSH | Database | Web API</span></div>
     </div>
   </div>
-  <div class="glass-card fragment" style="max-width:700px;margin:20px auto 0;padding:16px;text-align:center;border-color:rgba(124,58,237,0.3);">
+  <div class="glass-card fragment" style="max-width:700px;margin:20px auto 0;padding:30px;text-align:center;border-color:rgba(124,58,237,0.3);">
     <span style="font-size:0.8em;font-weight:700;color:var(--accent-light);">지식 + AI + 연결 = AI 기술지원 Pool 완성</span>
   </div>
   <aside class="notes">3개 레이어가 연결되면 "XenServer 호스트에서 로그를 읽고, AI가 분석하고, 보고서를 작성"하는 전체 파이프라인이 완성됩니다.</aside>
@@ -134,16 +134,16 @@
 <section data-background-gradient="radial-gradient(ellipse at 30% 70%, rgba(27,42,74,0.4) 0%, transparent 55%), #0a0a14">
   <p class="subtitle">Step 1</p>
   <h2 style="text-align:center;"><i class="fa fa-file-code" style="color:var(--accent-light)"></i> CLAUDE.md로 XenServer 지식 베이스 구축</h2>
-  <div style="max-width:860px;margin:0 auto;display:flex;flex-direction:column;gap:14px;">
-    <div class="glass-card fragment" style="display:flex;gap:10px;padding:20px;align-items:center;">
+  <div style="max-width:860px;margin:0 auto;display:flex;flex-direction:column;gap:24px;">
+    <div class="glass-card fragment" style="display:flex;gap:16px;padding:20px;align-items:center;">
       <div class="num-circle">1</div>
       <div><strong style="font-size:0.85em;">장애 유형 카탈로그 작성</strong><br><span style="font-size:0.63em;color:var(--text-secondary);">HA Self-Fence, Storage Disconnect, VM Hang — 교육에서 배운 장애 유형을 그대로 문서화</span></div>
     </div>
-    <div class="glass-card fragment" style="display:flex;gap:10px;padding:20px;align-items:center;">
+    <div class="glass-card fragment" style="display:flex;gap:16px;padding:20px;align-items:center;">
       <div class="num-circle">2</div>
       <div><strong style="font-size:0.85em;">진단 명령어 레퍼런스</strong><br><span style="font-size:0.63em;color:var(--text-secondary);">xe host-list, xe task-list, cat /var/log/xensource.log — 정상/비정상 결과 판별 기준</span></div>
     </div>
-    <div class="glass-card fragment" style="display:flex;gap:10px;padding:20px;align-items:center;">
+    <div class="glass-card fragment" style="display:flex;gap:16px;padding:20px;align-items:center;">
       <div class="num-circle">3</div>
       <div><strong style="font-size:0.85em;">체크리스트 & SOP 내장</strong><br><span style="font-size:0.63em;color:var(--text-secondary);">HA 구성 전 체크리스트, 장애 대응 Do's & Don'ts, Vinchin 백업 검증 절차</span></div>
     </div>
@@ -158,20 +158,20 @@
 <section data-background-gradient="radial-gradient(ellipse at 70% 30%, rgba(224,64,64,0.1) 0%, transparent 55%), #0a0a14">
   <p class="subtitle">Step 2</p>
   <h2 style="text-align:center;"><i class="fa fa-plug" style="color:var(--accent-light)"></i> MCP 서버로 실시간 시스템 연동</h2>
-  <div style="max-width:860px;margin:0 auto;display:flex;flex-direction:column;gap:14px;">
-    <div class="glass-card fragment" style="display:flex;gap:10px;padding:18px;align-items:center;">
+  <div style="max-width:860px;margin:0 auto;display:flex;flex-direction:column;gap:24px;">
+    <div class="glass-card fragment" style="display:flex;gap:16px;padding:18px;align-items:center;">
       <i class="fa fa-folder-open" style="font-size:1.6em;color:var(--blue);width:40px;text-align:center;"></i>
       <div><strong style="font-size:0.85em;">Filesystem MCP</strong> <span class="tag tag-green" style="font-size:0.55em;">이것 하나로 80%</span><br><span style="font-size:0.63em;color:var(--text-secondary);">xensource.log, SMlog 직접 읽기/분석 — 처음 시작할 때 가장 효과적</span></div>
     </div>
-    <div class="glass-card fragment" style="display:flex;gap:10px;padding:18px;align-items:center;">
+    <div class="glass-card fragment" style="display:flex;gap:16px;padding:18px;align-items:center;">
       <i class="fa fa-terminal" style="font-size:1.6em;color:var(--accent-light);width:40px;text-align:center;"></i>
       <div><strong style="font-size:0.85em;">SSH MCP</strong><br><span style="font-size:0.63em;color:var(--text-secondary);">원격 XenServer에 xe 명령 실행 & 결과 자동 분석</span></div>
     </div>
-    <div class="glass-card fragment" style="display:flex;gap:10px;padding:18px;align-items:center;">
+    <div class="glass-card fragment" style="display:flex;gap:16px;padding:18px;align-items:center;">
       <i class="fa fa-database" style="font-size:1.6em;color:var(--coral);width:40px;text-align:center;"></i>
       <div><strong style="font-size:0.85em;">Database MCP</strong><br><span style="font-size:0.63em;color:var(--text-secondary);">Vinchin 백업 이력 DB 조회 — 성공률, 실패 로그, RPO 준수 확인</span></div>
     </div>
-    <div class="glass-card fragment" style="display:flex;gap:10px;padding:18px;align-items:center;">
+    <div class="glass-card fragment" style="display:flex;gap:16px;padding:18px;align-items:center;">
       <i class="fa fa-cloud" style="font-size:1.6em;color:var(--warning);width:40px;text-align:center;"></i>
       <div><strong style="font-size:0.85em;">Web API MCP</strong><br><span style="font-size:0.63em;color:var(--text-secondary);">Zabbix/PRTG 모니터링 연동 — 실시간 서버 상태, 알림 이력 수집</span></div>
     </div>
@@ -183,28 +183,28 @@
 <section data-background-gradient="radial-gradient(ellipse at 50% 50%, rgba(124,58,237,0.12) 0%, transparent 55%), #0a0a14">
   <p class="subtitle">Step 3</p>
   <h2 style="text-align:center;"><i class="fa fa-arrows-spin" style="color:var(--accent-light)"></i> 자동화 워크플로우 구성</h2>
-  <div style="max-width:800px;margin:0 auto;display:flex;flex-direction:column;gap:12px;">
-    <div class="glass-card fragment" style="display:flex;align-items:center;gap:10px;padding:18px;">
+  <div style="max-width:800px;margin:0 auto;display:flex;flex-direction:column;gap:20px;">
+    <div class="glass-card fragment" style="display:flex;align-items:center;gap:16px;padding:18px;">
       <div class="num-circle" style="background:linear-gradient(135deg,#ff9800,#ff5722);">1</div>
       <div style="flex:1;"><strong style="font-size:0.85em;">로그 수집</strong><br><span style="font-size:0.63em;color:var(--text-secondary);">MCP로 XenServer/Vinchin 로그 자동 수집</span></div>
     </div>
     <div style="text-align:center;"><i class="fa fa-arrow-down" style="color:var(--accent-light);"></i></div>
-    <div class="glass-card fragment" style="display:flex;align-items:center;gap:10px;padding:18px;">
+    <div class="glass-card fragment" style="display:flex;align-items:center;gap:16px;padding:18px;">
       <div class="num-circle" style="background:linear-gradient(135deg,var(--accent),#9c27b0);">2</div>
       <div style="flex:1;"><strong style="font-size:0.85em;">AI 분석</strong><br><span style="font-size:0.63em;color:var(--text-secondary);">패턴 매칭, 이상 탐지, 원인 분석 수행</span></div>
     </div>
     <div style="text-align:center;"><i class="fa fa-arrow-down" style="color:var(--accent-light);"></i></div>
-    <div class="glass-card fragment" style="display:flex;align-items:center;gap:10px;padding:18px;">
+    <div class="glass-card fragment" style="display:flex;align-items:center;gap:16px;padding:18px;">
       <div class="num-circle" style="background:linear-gradient(135deg,var(--blue),#1565c0);">3</div>
       <div style="flex:1;"><strong style="font-size:0.85em;">진단 보고서</strong><br><span style="font-size:0.63em;color:var(--text-secondary);">장애 원인, 영향 범위, 권장 조치를 보고서로 자동 생성</span></div>
     </div>
     <div style="text-align:center;"><i class="fa fa-arrow-down" style="color:var(--accent-light);"></i></div>
-    <div class="glass-card fragment" style="display:flex;align-items:center;gap:10px;padding:18px;border-color:rgba(0,200,83,0.3);">
+    <div class="glass-card fragment" style="display:flex;align-items:center;gap:16px;padding:18px;border-color:rgba(0,200,83,0.3);">
       <div class="num-circle" style="background:linear-gradient(135deg,var(--success),#00a152);">4</div>
       <div style="flex:1;"><strong style="font-size:0.85em;">대응 실행</strong><br><span style="font-size:0.63em;color:var(--text-secondary);">검증된 스크립트 실행 또는 수동 가이드 · <strong style="color:var(--warning);">최종 결정은 반드시 엔지니어</strong></span></div>
     </div>
   </div>
-  <div class="glass-card fragment" style="max-width:800px;margin:16px auto 0;padding:14px;text-align:center;border-top:3px solid var(--accent);">
+  <div class="glass-card fragment" style="max-width:800px;margin:16px auto 0;padding:24px;text-align:center;border-top:3px solid var(--accent);">
     <span style="font-size:0.85em;font-weight:700;color:var(--accent-light);">"사람이 판단하고, AI가 실행한다"</span><span style="font-size:0.65em;color:var(--text-secondary);"> — AI가 스스로 시스템을 변경하지 않음</span>
   </div>
   <aside class="notes">핵심 원칙: AI는 분석과 보고서 작성을 담당하고, 최종 실행 결정은 반드시 엔지니어가 합니다.</aside>
@@ -214,30 +214,30 @@
 <section data-background-gradient="radial-gradient(ellipse at 60% 40%, rgba(124,58,237,0.15) 0%, transparent 55%), #0a0a14">
   <h2 style="text-align:center;font-size:1.4em;"><i class="fa fa-file-lines" style="color:var(--accent-light)"></i> 활용 사례 ① XenServer 로그 자동 분석</h2>
   <div style="max-width:800px;margin:0 auto;">
-    <div class="glass-card fragment" style="text-align:center;padding:16px;border-color:rgba(124,58,237,0.4);margin-bottom:20px;">
+    <div class="glass-card fragment" style="text-align:center;padding:30px;border-color:rgba(124,58,237,0.4);margin-bottom:20px;">
       <div style="font-size:1.8em;font-weight:900;color:var(--accent-light);line-height:1.3;">3,000줄 xensource.log<br>→ <span style="color:var(--success);">30초</span> 만에 원인 진단</div>
     </div>
-    <div style="display:flex;flex-direction:column;gap:10px;">
-      <div class="glass-card fragment" style="display:flex;gap:12px;padding:14px;align-items:center;">
+    <div style="display:flex;flex-direction:column;gap:16px;">
+      <div class="glass-card fragment" style="display:flex;gap:20px;padding:24px;align-items:center;">
         <i class="fa fa-moon" style="color:var(--coral);width:24px;text-align:center;"></i>
         <span style="font-size:0.7em;"><strong>시나리오:</strong> 새벽 HA Self-Fence 발생 → 고객이 원인 분석 요청</span>
       </div>
-      <div class="glass-card fragment" style="display:flex;gap:12px;padding:14px;align-items:center;">
+      <div class="glass-card fragment" style="display:flex;gap:20px;padding:24px;align-items:center;">
         <i class="fa fa-robot" style="color:var(--accent-light);width:24px;text-align:center;"></i>
         <span style="font-size:0.7em;">Claude Code에 로그 전달 → CLAUDE.md 장애 패턴과 <strong>자동 비교</strong></span>
       </div>
-      <div class="glass-card fragment" style="display:flex;gap:12px;padding:14px;align-items:center;">
+      <div class="glass-card fragment" style="display:flex;gap:20px;padding:24px;align-items:center;">
         <i class="fa fa-check-circle" style="color:var(--success);width:24px;text-align:center;"></i>
         <span style="font-size:0.7em;"><strong>결과:</strong> Heartbeat timeout 원인 특정 → 네트워크 Bond 설정 권장</span>
       </div>
     </div>
-    <div class="grid-2 fragment" style="gap:10px;margin-top:16px;">
-      <div style="background:rgba(224,64,64,0.08);border-radius:12px;padding:14px;text-align:center;border:1px solid rgba(224,64,64,0.2);">
+    <div class="grid-2 fragment" style="gap:16px;margin-top:16px;">
+      <div style="background:rgba(224,64,64,0.08);border-radius:12px;padding:24px;text-align:center;border:1px solid rgba(224,64,64,0.2);">
         <div style="font-size:0.7em;color:var(--coral);font-weight:600;">Before</div>
         <div style="font-size:1.4em;font-weight:900;color:var(--coral);">2시간</div>
         <div style="font-size:0.6em;color:var(--text-secondary);">수동 분석</div>
       </div>
-      <div style="background:rgba(0,200,83,0.08);border-radius:12px;padding:14px;text-align:center;border:1px solid rgba(0,200,83,0.2);">
+      <div style="background:rgba(0,200,83,0.08);border-radius:12px;padding:24px;text-align:center;border:1px solid rgba(0,200,83,0.2);">
         <div style="font-size:0.7em;color:var(--success);font-weight:600;">After</div>
         <div style="font-size:1.4em;font-weight:900;color:var(--success);">30초</div>
         <div style="font-size:0.6em;color:var(--text-secondary);">AI 진단</div>
@@ -250,7 +250,7 @@
 <!-- SS9: USE CASE 2 -->
 <section data-background-gradient="radial-gradient(ellipse at 30% 30%, rgba(0,120,212,0.15) 0%, transparent 55%), #0a0a14">
   <h2 style="text-align:center;font-size:1.4em;"><i class="fa fa-shield-halved" style="color:var(--accent-light)"></i> 활용 사례 ② 장애 대응 & 백업 검증</h2>
-  <div class="grid-2" style="max-width:900px;margin:0 auto;gap:14px;">
+  <div class="grid-2" style="max-width:900px;margin:0 auto;gap:24px;">
     <div class="glass-card fragment" style="padding:22px;border-top:3px solid var(--blue);">
       <h3 style="font-size:0.9em;color:var(--blue);"><i class="fa fa-wrench"></i> 장애 대응 자동화</h3>
       <div style="font-size:0.65em;display:flex;flex-direction:column;gap:8px;margin-top:12px;">
@@ -276,11 +276,11 @@
 <!-- SS10: TEAM POOL -->
 <section data-background-gradient="radial-gradient(ellipse at 50% 50%, rgba(124,58,237,0.12) 0%, transparent 55%), #0a0a14">
   <h2 style="text-align:center;"><i class="fa fa-users" style="color:var(--accent-light)"></i> 팀 기술지원 Pool 운영 방안</h2>
-  <div class="grid-2" style="max-width:880px;margin:0 auto;gap:10px;">
-    <div class="feat-card fragment" style="border-top:3px solid var(--blue);text-align:left;padding:22px;"><div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;"><i class="fa fa-code-branch" style="font-size:1.3em;color:var(--blue);"></i><h4 style="margin:0;font-size:0.85em;">지식 공유</h4></div><p style="font-size:0.63em;text-align:left;">팀원별 CLAUDE.md를 Git으로 관리<br>베스트 프랙티스 통합 & 버전 관리</p></div>
-    <div class="feat-card fragment" style="border-top:3px solid var(--accent);text-align:left;padding:22px;"><div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;"><i class="fa fa-stairs" style="font-size:1.3em;color:var(--accent-light);"></i><h4 style="margin:0;font-size:0.85em;">에스컬레이션 자동화</h4></div><p style="font-size:0.63em;text-align:left;">L1→L2→L3 단계별 AI 지원 범위 정의<br>AI 진단 보고서와 함께 에스컬레이션</p></div>
-    <div class="feat-card fragment" style="border-top:3px solid var(--coral);text-align:left;padding:22px;"><div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;"><i class="fa fa-chart-pie" style="font-size:1.3em;color:var(--coral);"></i><h4 style="margin:0;font-size:0.85em;">대시보드</h4></div><p style="font-size:0.63em;text-align:left;">주간/월간 장애 분석 리포트 자동 생성<br>장애 유형별 빈도, 해결 시간 시각화</p></div>
-    <div class="feat-card fragment" style="border-top:3px solid var(--success);text-align:left;padding:22px;"><div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;"><i class="fa fa-user-plus" style="font-size:1.3em;color:var(--success);"></i><h4 style="margin:0;font-size:0.85em;">온보딩</h4></div><p style="font-size:0.63em;text-align:left;">신규 엔지니어가 CLAUDE.md로 즉시 역량 확보<br><strong>6개월 온보딩 → 수주 내로 단축</strong></p></div>
+  <div class="grid-2" style="max-width:880px;margin:0 auto;gap:16px;">
+    <div class="feat-card fragment" style="border-top:3px solid var(--blue);text-align:left;padding:22px;"><div style="display:flex;align-items:center;gap:16px;margin-bottom:10px;"><i class="fa fa-code-branch" style="font-size:1.3em;color:var(--blue);"></i><h4 style="margin:0;font-size:0.85em;">지식 공유</h4></div><p style="font-size:0.63em;text-align:left;">팀원별 CLAUDE.md를 Git으로 관리<br>베스트 프랙티스 통합 & 버전 관리</p></div>
+    <div class="feat-card fragment" style="border-top:3px solid var(--accent);text-align:left;padding:22px;"><div style="display:flex;align-items:center;gap:16px;margin-bottom:10px;"><i class="fa fa-stairs" style="font-size:1.3em;color:var(--accent-light);"></i><h4 style="margin:0;font-size:0.85em;">에스컬레이션 자동화</h4></div><p style="font-size:0.63em;text-align:left;">L1→L2→L3 단계별 AI 지원 범위 정의<br>AI 진단 보고서와 함께 에스컬레이션</p></div>
+    <div class="feat-card fragment" style="border-top:3px solid var(--coral);text-align:left;padding:22px;"><div style="display:flex;align-items:center;gap:16px;margin-bottom:10px;"><i class="fa fa-chart-pie" style="font-size:1.3em;color:var(--coral);"></i><h4 style="margin:0;font-size:0.85em;">대시보드</h4></div><p style="font-size:0.63em;text-align:left;">주간/월간 장애 분석 리포트 자동 생성<br>장애 유형별 빈도, 해결 시간 시각화</p></div>
+    <div class="feat-card fragment" style="border-top:3px solid var(--success);text-align:left;padding:22px;"><div style="display:flex;align-items:center;gap:16px;margin-bottom:10px;"><i class="fa fa-user-plus" style="font-size:1.3em;color:var(--success);"></i><h4 style="margin:0;font-size:0.85em;">온보딩</h4></div><p style="font-size:0.63em;text-align:left;">신규 엔지니어가 CLAUDE.md로 즉시 역량 확보<br><strong>6개월 온보딩 → 수주 내로 단축</strong></p></div>
   </div>
   <aside class="notes">개인 역량을 조직 역량으로 확장합니다. 신규 엔지니어가 CLAUDE.md를 읽는 것만으로 팀 역량 대부분을 즉시 확보할 수 있습니다.</aside>
 </section>
@@ -288,22 +288,22 @@
 <!-- SS11: ROADMAP -->
 <section data-background-gradient="radial-gradient(ellipse at 70% 70%, rgba(124,58,237,0.15) 0%, transparent 55%), #0a0a14">
   <h2 style="text-align:center;"><i class="fa fa-road" style="color:var(--accent-light)"></i> 구축 로드맵 — 지금 바로 시작하기</h2>
-  <div style="max-width:800px;margin:0 auto;display:flex;flex-direction:column;gap:10px;">
+  <div style="max-width:800px;margin:0 auto;display:flex;flex-direction:column;gap:16px;">
     <div class="glass-card fragment" style="padding:22px;border-left:4px solid #ff9800;">
-      <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px;">
+      <div style="display:flex;align-items:center;gap:20px;margin-bottom:8px;">
         <span class="tag tag-purple">이번 주</span><strong style="font-size:0.9em;">Step 1: 1시간</strong>
       </div>
       <div style="font-size:0.67em;color:var(--text-secondary);">Claude Code 설치 + CLAUDE.md 기본 지식 입력<br>장애 유형 3가지, 핵심 명령어 5개만 적으면 충분</div>
       <div class="code-block" style="margin-top:10px;padding:10px 14px;">npm install -g @anthropic-ai/claude-code</div>
     </div>
     <div class="glass-card fragment" style="padding:22px;border-left:4px solid var(--accent);">
-      <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px;">
+      <div style="display:flex;align-items:center;gap:20px;margin-bottom:8px;">
         <span class="tag tag-purple">1개월 내</span><strong style="font-size:0.9em;">Step 2: 반복 사용</strong>
       </div>
       <div style="font-size:0.67em;color:var(--text-secondary);">실제 장애 대응에 AI 활용 시작<br>대응 완료 후 이력을 CLAUDE.md에 추가 → 지식 축적</div>
     </div>
     <div class="glass-card fragment" style="padding:22px;border-left:4px solid var(--success);">
-      <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px;">
+      <div style="display:flex;align-items:center;gap:20px;margin-bottom:8px;">
         <span class="tag tag-purple">3개월 후</span><strong style="font-size:0.9em;">Step 3: 팀 확장</strong>
       </div>
       <div style="font-size:0.67em;color:var(--text-secondary);">팀 전체 Pool 운영, MCP 연동 확대<br>Git 기반 지식 공유, 에스컬레이션 자동화, 대시보드 구축</div>
@@ -322,7 +322,7 @@
     <h1 style="font-size:2.2em;margin:24px 0;">실습: Claude Code로<br>XenServer 기술지원 시작하기</h1>
     <div class="section-line" style="margin:16px auto;"></div>
     <p style="font-size:0.9em;color:var(--text-secondary);">직접 따라하면서 AI 기술지원 Pool의 첫 번째 레이어를 구축합니다</p>
-    <div style="display:flex;justify-content:center;gap:10px;margin-top:28px;">
+    <div style="display:flex;justify-content:center;gap:16px;margin-top:28px;">
       <span class="tag tag-purple"><i class="fa fa-clock"></i>&nbsp; 20분</span>
       <span class="tag tag-purple"><i class="fa fa-list-ol"></i>&nbsp; 3단계 실습</span>
     </div>
@@ -363,7 +363,7 @@
 <section data-background-gradient="radial-gradient(ellipse at 70% 30%, rgba(0,120,212,0.15) 0%, transparent 55%), #0a0a14">
   <p class="subtitle">실습 2 · 7분</p>
   <h2 style="text-align:center;font-size:1.4em;"><i class="fa fa-file-code" style="color:var(--accent-light)"></i> CLAUDE.md 작성 & 컨텍스트 비교</h2>
-  <div class="grid-2" style="max-width:920px;margin:0 auto;gap:12px;">
+  <div class="grid-2" style="max-width:920px;margin:0 auto;gap:20px;">
     <div>
       <div class="code-block fragment" style="font-size:0.55em;line-height:1.6;">
         <span class="comment"># XenServer 기술지원 지식 베이스</span><br><br>
@@ -384,7 +384,7 @@
         - DON'T: 원인 없이 강제 재부팅
       </div>
     </div>
-    <div style="display:flex;flex-direction:column;gap:14px;">
+    <div style="display:flex;flex-direction:column;gap:24px;">
       <div class="glass-card fragment" style="padding:18px;border-color:rgba(224,64,64,0.2);">
         <h3 style="font-size:0.85em;color:var(--coral);"><i class="fa fa-xmark"></i> Before (CLAUDE.md 없이)</h3>
         <p style="font-size:0.63em;">일반적인 AI 답변<br>컨텍스트 부족<br>우리 팀 SOP와 무관</p>
@@ -461,7 +461,7 @@
     <h1 style="font-size:2.4em;margin-bottom:20px;">감사합니다</h1>
     <div class="section-line" style="margin:0 auto 24px;"></div>
     <h2 style="font-size:1.2em;margin-bottom:24px;">오늘의 핵심 3가지</h2>
-    <div class="grid-3" style="max-width:900px;margin:0 auto;gap:10px;margin-bottom:32px;">
+    <div class="grid-3" style="max-width:900px;margin:0 auto;gap:16px;margin-bottom:32px;">
       <div class="glass-card fragment" style="padding:20px;text-align:center;border-top:3px solid var(--blue);">
         <div style="font-size:2em;font-weight:900;color:var(--blue);margin-bottom:8px;">1</div>
         <h4 style="font-size:0.8em;margin-bottom:6px;">CLAUDE.md</h4>
